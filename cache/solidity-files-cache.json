@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "D:\\File_cua_Ty\\personal_prj\\NFT_Marketplace_HardHat\\NFT-Marketplace\\contracts\\Marketplace.sol": {
-      "lastModificationDate": 1747879357507,
-      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
+      "lastModificationDate": 1748316970712,
+      "contentHash": "3efc24b771fe8b0aeb0a49d091f331e9",
       "sourceName": "contracts/Marketplace.sol",
       "solcConfig": {
         "version": "0.8.28",
@@ -29,13 +29,20 @@
           }
         }
       },
-      "imports": [],
-      "versionPragmas": [],
-      "artifacts": []
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "@openzeppelin/contracts/utils/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.28"
+      ],
+      "artifacts": [
+        "Marketplace"
+      ]
     },
     "D:\\File_cua_Ty\\personal_prj\\NFT_Marketplace_HardHat\\NFT-Marketplace\\contracts\\NFT.sol": {
-      "lastModificationDate": 1747885029626,
-      "contentHash": "33384de28bc68f1c33fe424665f3fb97",
+      "lastModificationDate": 1748311579121,
+      "contentHash": "18c9c41df69f957bfceef26702685a7b",
       "sourceName": "contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.28",
@@ -681,6 +688,42 @@
       ],
       "artifacts": [
         "IERC721Enumerable"
+      ]
+    },
+    "D:\\File_cua_Ty\\personal_prj\\NFT_Marketplace_HardHat\\NFT-Marketplace\\node_modules\\@openzeppelin\\contracts\\utils\\ReentrancyGuard.sol": {
+      "lastModificationDate": 1747792689487,
+      "contentHash": "190613e556d509d9e9a0ea43dc5d891d",
+      "sourceName": "@openzeppelin/contracts/utils/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
       ]
     }
   }

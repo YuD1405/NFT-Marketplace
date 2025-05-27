@@ -5,18 +5,18 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 contract Marketplace is ReentrancyGuard{
-    address public owner;
+    address public admin;
     uint256 public platformFeeBasisPoints = 250;
     uint256 public totalVolumeTraded; 
     uint256 public totalListings;   
 
     constructor() {
-        owner = msg.sender;
+        admin = msg.sender;
     }
 
     // Modifiers
     modifier onlyAdmin() {
-        require(msg.sender == owner, "Not admin");
+        require(msg.sender == admin, "Not admin");
         _;
     }
 
