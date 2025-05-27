@@ -8,7 +8,7 @@ describe("NFTCollection", () => {
   beforeEach(async () => {
     [owner, user1, user2] = await ethers.getSigners();
     const NFT = await ethers.getContractFactory("NFT");
-    nftContract = await NFT.deploy("ipfs://baseuri/"); // mặc định account[0] là owner , là ng deploy
+    nftContract = await NFT.deploy("ipfs://QmdVPx2qrVD6vuaePN5CtL61WArTettLeKPUoGcsCYb6ur/"); // mặc định account[0] là owner , là ng deploy
     //await nftContract.deployed();
   });
 
@@ -77,7 +77,7 @@ describe("NFTCollection", () => {
     it("should return correct tokenURI for existing token", async () => {
       await nftContract.connect(user1).mint();    
       const token1_URI = await nftContract.tokenURI(0);
-      expect(token1_URI, "Should be 'ipfs://baseuri/0.json'").to.equal("ipfs://baseuri/0.json");
+      expect(token1_URI, "Should be 'ipfs://QmdVPx2qrVD6vuaePN5CtL61WArTettLeKPUoGcsCYb6ur/0.json'").to.equal("ipfs://QmdVPx2qrVD6vuaePN5CtL61WArTettLeKPUoGcsCYb6ur/0.json");
     });
 
     // Gây lỗi nếu gọi tokenURI với token chưa tồn tại

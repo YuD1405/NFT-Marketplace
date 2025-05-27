@@ -26,6 +26,8 @@ contract NFT is ERC721Enumerable  {
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
         address owner = _ownerOf(_tokenId);
         require(owner != address(0), "Token does not exist");
-        return string(abi.encodePacked(baseTokenURI, _tokenId.toString(), ".json"));
+
+        uint256 displayId = _tokenId + 1;
+        return string(abi.encodePacked(baseTokenURI, "NFT_", displayId.toString(), ".json"));
     }
 }
