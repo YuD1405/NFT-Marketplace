@@ -1,0 +1,23 @@
+{
+  "name": "Hammer of Thunder",
+  "description": "This is NFT weapon for game - #5.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/hammer_of_thunder.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Thunder"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Melee"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Thunder Strike"
+    }
+  ]
+}

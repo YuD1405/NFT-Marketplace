@@ -1,0 +1,23 @@
+{
+  "name": "Crystal Lance",
+  "description": "This is NFT weapon for game - #32.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/crystal_lance.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Light"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Melee"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Radiant Pierce"
+    }
+  ]
+}

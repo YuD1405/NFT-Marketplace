@@ -1,0 +1,23 @@
+{
+  "name": "Stormcaller Wand",
+  "description": "This is NFT weapon for game - #45.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/stormcaller_wand.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Thunder"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Magic"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Thunderstorm"
+    }
+  ]
+}

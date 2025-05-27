@@ -1,0 +1,23 @@
+{
+  "name": "Solar Staff",
+  "description": "This is NFT weapon for game - #39.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/solar_staff.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Light"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Magic"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Sunburst"
+    }
+  ]
+}

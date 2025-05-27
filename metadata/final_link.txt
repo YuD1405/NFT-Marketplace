@@ -1,0 +1,2 @@
+Image: https://gateway.pinata.cloud/ipfs/QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/
+Json: https://gateway.pinata.cloud/ipfs/QmdVPx2qrVD6vuaePN5CtL61WArTettLeKPUoGcsCYb6ur/

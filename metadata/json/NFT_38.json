@@ -1,0 +1,23 @@
+{
+  "name": "Gale Bow",
+  "description": "This is NFT weapon for game - #38.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/gale_bow.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Wind"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Range"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Wind Piercer"
+    }
+  ]
+}

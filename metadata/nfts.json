@@ -1,0 +1,552 @@
+[
+  {
+    "name": "Sword of Valor",
+    "description": "This is NFT weapon for game - #1.",
+    "image": "https://example.com/images/sword_of_valor.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Light"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Holy Slash"}
+    ]
+  },
+  {
+    "name": "Axe of Fury",
+    "description": "This is NFT weapon for game - #2.",
+    "image": "https://example.com/images/axe_of_fury.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Fire"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Flame Crush"}
+    ]
+  },
+  {
+    "name": "Bow of the Eagle",
+    "description": "This is NFT weapon for game - #3.",
+    "image": "https://example.com/images/bow_of_the_eagle.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Wind"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Eagle Eye"}
+    ]
+  },
+  {
+    "name": "Shadow Dagger",
+    "description": "This is NFT weapon for game - #4.",
+    "image": "https://example.com/images/shadow_dagger.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Dark"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Silent Stab"}
+    ]
+  },
+  {
+    "name": "Hammer of Thunder",
+    "description": "This is NFT weapon for game - #5.",
+    "image": "https://example.com/images/hammer_of_thunder.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Thunder"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Thunder Strike"}
+    ]
+  },
+  {
+    "name": "Spear of Destiny",
+    "description": "This is NFT weapon for game - #6.",
+    "image": "https://example.com/images/spear_of_destiny.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Earth"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Earth Pierce"}
+    ]
+  },
+  {
+    "name": "Crossbow of Silence",
+    "description": "This is NFT weapon for game - #7.",
+    "image": "https://example.com/images/crossbow_of_silence.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Metal"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Silent Shot"}
+    ]
+  },
+  {
+    "name": "Flaming Staff",
+    "description": "This is NFT weapon for game - #8.",
+    "image": "https://example.com/images/flaming_staff.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Fire"},
+      {"trait_type": "Weapon Type", "value": "Magic"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Inferno Blaze"}
+    ]
+  },
+  {
+    "name": "Ice Blade",
+    "description": "This is NFT weapon for game - #9.",
+    "image": "https://example.com/images/ice_blade.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Water"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Frozen Slash"}
+    ]
+  },
+  {
+    "name": "War Hammer",
+    "description": "This is NFT weapon for game - #10.",
+    "image": "https://example.com/images/war_hammer.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Earth"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Normal"},
+      {"trait_type": "Skill", "value": "Crushing Blow"}
+    ]
+  },
+  {
+    "name": "Lightning Whip",
+    "description": "This is NFT weapon for game - #11.",
+    "image": "https://example.com/images/lightning_whip.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Thunder"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Electric Lash"}
+    ]
+  },
+  {
+    "name": "Dragon Slayer Sword",
+    "description": "This is NFT weapon for game - #12.",
+    "image": "https://example.com/images/dragon_slayer_sword.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Light"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Dragon's Bane"}
+    ]
+  },
+  {
+    "name": "Venomous Claws",
+    "description": "This is NFT weapon for game - #13.",
+    "image": "https://example.com/images/venomous_claws.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Nature"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Poison Strike"}
+    ]
+  },
+  {
+    "name": "Crystal Bow",
+    "description": "This is NFT weapon for game - #14.",
+    "image": "https://example.com/images/crystal_bow.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Light"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Prismatic Shot"}
+    ]
+  },
+  {
+    "name": "Phoenix Feather Staff",
+    "description": "This is NFT weapon for game - #15.",
+    "image": "https://example.com/images/phoenix_feather_staff.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Fire"},
+      {"trait_type": "Weapon Type", "value": "Magic"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Rebirth Flame"}
+    ]
+  },
+  {
+    "name": "Obsidian Axe",
+    "description": "This is NFT weapon for game - #16.",
+    "image": "https://example.com/images/obsidian_axe.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Dark"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Shadow Cleave"}
+    ]
+  },
+  {
+    "name": "Thunderbolt Spear",
+    "description": "This is NFT weapon for game - #17.",
+    "image": "https://example.com/images/thunderbolt_spear.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Thunder"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Storm Pierce"}
+    ]
+  },
+  {
+    "name": "Golden Shield Sword",
+    "description": "This is NFT weapon for game - #18.",
+    "image": "https://example.com/images/golden_shield_sword.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Light"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Radiant Guard"}
+    ]
+  },
+  {
+    "name": "Venom Bow",
+    "description": "This is NFT weapon for game - #19.",
+    "image": "https://example.com/images/venom_bow.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Nature"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Toxic Arrow"}
+    ]
+  },
+  {
+    "name": "Silver Dagger",
+    "description": "This is NFT weapon for game - #20.",
+    "image": "https://example.com/images/silver_dagger.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Metal"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Quick Stab"}
+    ]
+  },
+  {
+    "name": "Meteor Hammer",
+    "description": "This is NFT weapon for game - #21.",
+    "image": "https://example.com/images/meteor_hammer.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Earth"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Meteor Smash"}
+    ]
+  },
+  {
+    "name": "Shadow Bow",
+    "description": "This is NFT weapon for game - #22.",
+    "image": "https://example.com/images/shadow_bow.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Dark"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Dark Shot"}
+    ]
+  },
+  {
+    "name": "Blazing Sword",
+    "description": "This is NFT weapon for game - #23.",
+    "image": "https://example.com/images/blazing_sword.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Fire"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Fire Slash"}
+    ]
+  },
+  {
+    "name": "Thunder Axe",
+    "description": "This is NFT weapon for game - #24.",
+    "image": "https://example.com/images/thunder_axe.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Thunder"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Electric Chop"}
+    ]
+  },
+  {
+    "name": "Void Spear",
+    "description": "This is NFT weapon for game - #25.",
+    "image": "https://example.com/images/void_spear.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Dark"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Void Pierce"}
+    ]
+  },
+  {
+    "name": "Frostbite Mace",
+    "description": "This is NFT weapon for game - #26.",
+    "image": "https://example.com/images/frostbite_mace.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Water"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Ice Shatter"}
+    ]
+  },
+  {
+    "name": "Venom Spitter",
+    "description": "This is NFT weapon for game - #27.",
+    "image": "https://example.com/images/venom_spitter.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Nature"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Toxic Spray"}
+    ]
+  },
+  {
+    "name": "Thunder Fang",
+    "description": "This is NFT weapon for game - #28.",
+    "image": "https://example.com/images/thunder_fang.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Thunder"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Electric Bite"}
+    ]
+  },
+  {
+    "name": "Wind Cutter",
+    "description": "This is NFT weapon for game - #29.",
+    "image": "https://example.com/images/wind_cutter.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Wind"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Gale Shot"}
+    ]
+  },
+  {
+    "name": "Blight Staff",
+    "description": "This is NFT weapon for game - #30.",
+    "image": "https://example.com/images/blight_staff.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Dark"},
+      {"trait_type": "Weapon Type", "value": "Magic"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Corrupt Beam"}
+    ]
+  },
+  {
+    "name": "Earthshaker Hammer",
+    "description": "This is NFT weapon for game - #31.",
+    "image": "https://example.com/images/earthshaker_hammer.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Earth"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Seismic Slam"}
+    ]
+  },
+  {
+    "name": "Crystal Lance",
+    "description": "This is NFT weapon for game - #32.",
+    "image": "https://example.com/images/crystal_lance.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Light"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Radiant Pierce"}
+    ]
+  },
+  {
+    "name": "Storm Whip",
+    "description": "This is NFT weapon for game - #33.",
+    "image": "https://example.com/images/storm_whip.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Thunder"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Lightning Lash"}
+    ]
+  },
+  {
+    "name": "Aqua Bow",
+    "description": "This is NFT weapon for game - #34.",
+    "image": "https://example.com/images/aqua_bow.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Water"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Tidal Arrow"}
+    ]
+  },
+  {
+    "name": "Molten Sword",
+    "description": "This is NFT weapon for game - #35.",
+    "image": "https://example.com/images/molten_sword.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Fire"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Lava Slash"}
+    ]
+  },
+  {
+    "name": "Venomous Spear",
+    "description": "This is NFT weapon for game - #36.",
+    "image": "https://example.com/images/venomous_spear.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Nature"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Poison Thrust"}
+    ]
+  },
+  {
+    "name": "Spectral Blade",
+    "description": "This is NFT weapon for game - #37.",
+    "image": "https://example.com/images/spectral_blade.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Dark"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Phantom Slash"}
+    ]
+  },
+  {
+    "name": "Gale Bow",
+    "description": "This is NFT weapon for game - #38.",
+    "image": "https://example.com/images/gale_bow.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Wind"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Wind Piercer"}
+    ]
+  },
+  {
+    "name": "Solar Staff",
+    "description": "This is NFT weapon for game - #39.",
+    "image": "https://example.com/images/solar_staff.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Light"},
+      {"trait_type": "Weapon Type", "value": "Magic"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Sunburst"}
+    ]
+  },
+  {
+    "name": "Stone Fist",
+    "description": "This is NFT weapon for game - #40.",
+    "image": "https://example.com/images/stone_fist.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Earth"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Earth Punch"}
+    ]
+  },
+  {
+    "name": "Darkness Dagger",
+    "description": "This is NFT weapon for game - #41.",
+    "image": "https://example.com/images/darkness_dagger.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Dark"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Silent Strike"}
+    ]
+  },
+  {
+    "name": "Flame Thrower",
+    "description": "This is NFT weapon for game - #42.",
+    "image": "https://example.com/images/flame_thrower.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Fire"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Inferno Burst"}
+    ]
+  },
+  {
+    "name": "Tidal Trident",
+    "description": "This is NFT weapon for game - #43.",
+    "image": "https://example.com/images/tidal_trident.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Water"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Water Surge"}
+    ]
+  },
+  {
+    "name": "Ironclad Axe ",
+    "description": "This is NFT weapon for game - #44.",
+    "image": "https://example.com/images/ironclad_axe.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Earth"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Heavy Chop"}
+    ]
+  },
+  {
+    "name": "Stormcaller Wand",
+    "description": "This is NFT weapon for game - #45.",
+    "image": "https://example.com/images/stormcaller_wand.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Thunder"},
+      {"trait_type": "Weapon Type", "value": "Magic"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Thunderstorm"}
+    ]
+  },
+  {
+    "name": "Blazing Scimitar",
+    "description": "This is NFT weapon for game - #46.",
+    "image": "https://example.com/images/blazing_scimitar.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Fire"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Flame Slash"}
+    ]
+  },
+  {
+    "name": "Venom Fang Crossbow",
+    "description": "This is NFT weapon for game - #47.",
+    "image": "https://example.com/images/venom_fang_crossbow.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Nature"},
+      {"trait_type": "Weapon Type", "value": "Range"},
+      {"trait_type": "Rarity", "value": "Epic"},
+      {"trait_type": "Skill", "value": "Poison Bolt"}
+    ]
+  },
+  {
+    "name": "Glacial Hammer",
+    "description": "This is NFT weapon for game - #48.",
+    "image": "https://example.com/images/glacial_hammer.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Water"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Frozen Crush"}
+    ]
+  },
+  {
+    "name": "Wind Slash Katana",
+    "description": "This is NFT weapon for game - #49.",
+    "image": "https://example.com/images/wind_slash_katana.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Wind"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Rare"},
+      {"trait_type": "Skill", "value": "Air Cut"}
+    ]
+  },
+  {
+    "name": "Lightbringer Sword",
+    "description": "This is NFT weapon for game - #50.",
+    "image": "https://example.com/images/lightbringer_sword.png",
+    "attributes": [
+      {"trait_type": "Element", "value": "Light"},
+      {"trait_type": "Weapon Type", "value": "Melee"},
+      {"trait_type": "Rarity", "value": "Legendary"},
+      {"trait_type": "Skill", "value": "Holy Slash"}
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "name": "Crystal Bow",
+  "description": "This is NFT weapon for game - #14.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/crystal_bow.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Light"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Range"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Prismatic Shot"
+    }
+  ]
+}

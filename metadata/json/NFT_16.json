@@ -1,0 +1,23 @@
+{
+  "name": "Obsidian Axe",
+  "description": "This is NFT weapon for game - #16.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/obsidian_axe.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Dark"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Melee"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Shadow Cleave"
+    }
+  ]
+}

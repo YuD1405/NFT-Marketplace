@@ -1,0 +1,23 @@
+{
+  "name": "Bow of the Eagle",
+  "description": "This is NFT weapon for game - #3.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/bow_of_the_eagle.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Wind"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Range"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Eagle Eye"
+    }
+  ]
+}

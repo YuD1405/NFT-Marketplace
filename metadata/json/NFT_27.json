@@ -1,0 +1,23 @@
+{
+  "name": "Venom Spitter",
+  "description": "This is NFT weapon for game - #27.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/venom_spitter.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Nature"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Range"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Toxic Spray"
+    }
+  ]
+}

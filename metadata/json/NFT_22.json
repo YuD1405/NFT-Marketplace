@@ -1,0 +1,23 @@
+{
+  "name": "Shadow Bow",
+  "description": "This is NFT weapon for game - #22.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/shadow_bow.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Dark"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Range"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Dark Shot"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Wind Cutter",
+  "description": "This is NFT weapon for game - #29.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/wind_cutter.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Wind"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Range"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Gale Shot"
+    }
+  ]
+}

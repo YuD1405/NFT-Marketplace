@@ -1,0 +1,23 @@
+{
+  "name": "Blight Staff",
+  "description": "This is NFT weapon for game - #30.",
+  "image": "ipfs://QmZBrtfcFyMU17JptduvdJ4ZLK19xvB7jWGg5f3GSnRsJu/blight_staff.png",
+  "attributes": [
+    {
+      "trait_type": "Element",
+      "value": "Dark"
+    },
+    {
+      "trait_type": "Weapon Type",
+      "value": "Magic"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Skill",
+      "value": "Corrupt Beam"
+    }
+  ]
+}
