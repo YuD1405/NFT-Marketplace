@@ -245,18 +245,21 @@ export namespace NFTListedEvent {
 
 export namespace NFTSoldEvent {
   export type InputTuple = [
+    seller: AddressLike,
     buyer: AddressLike,
     nft: AddressLike,
     tokenId: BigNumberish,
     price: BigNumberish
   ];
   export type OutputTuple = [
+    seller: string,
     buyer: string,
     nft: string,
     tokenId: bigint,
     price: bigint
   ];
   export interface OutputObject {
+    seller: string;
     buyer: string;
     nft: string;
     tokenId: bigint;
@@ -574,7 +577,7 @@ export interface Marketplace extends BaseContract {
       NFTListedEvent.OutputObject
     >;
 
-    "NFTSold(address,address,uint256,uint256)": TypedContractEvent<
+    "NFTSold(address,address,address,uint256,uint256)": TypedContractEvent<
       NFTSoldEvent.InputTuple,
       NFTSoldEvent.OutputTuple,
       NFTSoldEvent.OutputObject

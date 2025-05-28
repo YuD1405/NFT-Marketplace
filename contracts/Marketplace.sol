@@ -25,6 +25,11 @@ contract Marketplace is ReentrancyGuard{
         _;
     }
 
+    modifier listingExists(address nft, uint256 tokenId) {
+        require(listings[nft][tokenId].seller != address(0), "Listing does not exist");
+        _;
+    }
+
     // Struct
     struct Listing {
         address seller;
@@ -42,7 +47,7 @@ contract Marketplace is ReentrancyGuard{
 
     // EVENTS
     event NFTListed(address indexed seller, address indexed nft, uint256 indexed tokenId, uint256 price);
-    event NFTSold(address indexed buyer, address indexed nft, uint256 indexed tokenId, uint256 price);
+    event NFTSold(address indexed seller, address indexed buyer, address indexed nft, uint256 tokenId, uint256 price);
     event ListingCanceled(address indexed seller, address indexed nft, uint256 indexed tokenId);
     event ListingUpdated(address indexed seller, address indexed nft, uint256 indexed tokenId, uint256 newPrice);
     event PlatformFeeUpdated(uint256 oldFee, uint256 newFee);
@@ -101,19 +106,18 @@ contract Marketplace is ReentrancyGuard{
         IERC721(nft).safeTransferFrom(seller, msg.sender, tokenId);
 
         emit VolumeUpdated(totalVolumeTraded);
-        emit NFTSold(msg.sender, nft, tokenId, price);
+        emit NFTSold(seller, msg.sender, nft, tokenId, price);
     }
 
     // Hủy đăng bán
-    function cancelListing(address nft, uint256 tokenId) external onlySeller(nft, tokenId) {
+    function cancelListing(address nft, uint256 tokenId) external listingExists(nft, tokenId) onlySeller(nft, tokenId) {
         delete listings[nft][tokenId];
         _removeListingFromList(nft, tokenId); // ← Xoá khỏi mảng tracking
         emit ListingCanceled(msg.sender, nft, tokenId);
     }
 
-
     // Cập nhật giá
-    function updateListing(address nft, uint256 tokenId, uint256 newPrice) external onlySeller(nft, tokenId){
+    function updateListing(address nft, uint256 tokenId, uint256 newPrice) external listingExists(nft, tokenId) onlySeller(nft, tokenId){
         Listing storage item = listings[nft][tokenId];
         require(newPrice > 0, "Invalid price");
 
