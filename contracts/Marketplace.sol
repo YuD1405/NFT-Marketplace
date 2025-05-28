@@ -104,7 +104,10 @@ contract Marketplace is ReentrancyGuard{
 
         // Chuyển NFT
         IERC721(nft).safeTransferFrom(seller, msg.sender, tokenId);
-
+        
+        // delete listings[nft][tokenId];
+        // _removeListingFromList(nft, tokenId);
+        
         emit VolumeUpdated(totalVolumeTraded);
         emit NFTSold(seller, msg.sender, nft, tokenId, price);
     }

@@ -23,9 +23,9 @@ contract ReentrantBuyer {
     }
 
     // Khi contract nhận ETH, sẽ cố tình gọi lại buyNFT để gây reentrancy
-    receive() external payable {
-        if (attacked) {
-            marketplace.buyNFT(nft, tokenId); // Reentrant call
-        }
-    }
+    // receive() external payable {
+    //     if (attacked) {
+    //         marketplace.buyNFT(nft, tokenId); // Reentrant call
+    //     }
+    // }
 }

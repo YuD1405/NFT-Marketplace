@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for contracts\NFT.sol</title>
+    <title>Code coverage report for contracts\Attacker.sol</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> NFT.sol
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> Attacker.sol
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/7</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>6/6</span>
       </div>
     </div>
   </div>
@@ -74,8 +74,7 @@
 29
 30
 31
-32
-33</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+32</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -86,60 +85,58 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">57×</span>
-<span class="cline-any cline-yes">57×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">58×</span>
-<span class="cline-any cline-yes">58×</span>
-<span class="cline-any cline-yes">58×</span>
-<span class="cline-any cline-yes">58×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 &nbsp;
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";  
-import "@openzeppelin/contracts/utils/Strings.sol";
+import "./Marketplace.sol";
 &nbsp;
-contract NFT is ERC721Enumerable  {
-    uint256 public nextTokenId;
-    address public admin;
-    using Strings for uint256;
-    string public baseTokenURI;
+contract ReentrantBuyer {
+    Marketplace public marketplace;
+    address public nft;
+    uint256 public tokenId;
+    bool public attacked;
 &nbsp;
-    constructor(string memory _baseTokenURI) ERC721("MyNFT", "MNFT") {
-        admin = msg.sender;
-        baseTokenURI = _baseTokenURI;
-    }
-    
-   function mint() external returns (uint256) {
-        uint256 tokenId = nextTokenId;
-        _safeMint(msg.sender, tokenId);
-        nextTokenId++;
-        return tokenId;
+    constructor(address _marketplace, address _nft, uint256 _tokenId) {
+        marketplace = Marketplace(_marketplace);
+        nft = _nft;
+        tokenId = _tokenId;
+        attacked = false;
     }
 &nbsp;
-    function tokenURI(uint256 _tokenId) public view override returns (string memory) {
-        address owner = _ownerOf(_tokenId);
-        require(owner != address(0), "Token does not exist");
-&nbsp;
-        uint256 displayId = _tokenId + 1;
-        return string(abi.encodePacked(baseTokenURI, "NFT_", displayId.toString(), ".json"));
+    // Gọi để tấn công
+    function attack() external payable {
+        attacked = true;
+        marketplace.buyNFT{value: msg.value}(nft, tokenId);
     }
-}</pre></td></tr>
+&nbsp;
+    // Khi contract nhận ETH, sẽ cố tình gọi lại buyNFT để gây reentrancy
+    // receive() external payable {
+    //     if (attacked) {
+    //         marketplace.buyNFT(nft, tokenId); // Reentrant call
+    //     }
+    // }
+}
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

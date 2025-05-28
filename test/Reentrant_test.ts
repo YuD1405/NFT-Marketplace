@@ -46,7 +46,7 @@ describe("Security - Reentrancy Attack", () => {
 
     // Gửi ETH từ attacker → gọi attack() từ ReentrantBuyer
      await expect(
-        reentrantBuyer.connect(attacker).attack({ value: price })
-      ).to.be.reverted;
+      reentrantBuyer.connect(attacker).attack({ value: price })
+    ).to.be.reverted;
   });
 });

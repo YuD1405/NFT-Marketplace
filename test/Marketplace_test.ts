@@ -486,6 +486,37 @@ describe("Marketplace", () => {
     });
   });
 
+  describe("Platform fee management", () => {
+    it("should allow admin to update platform fee", async () => {
+      const newFee = 200; // 2%
+      await marketplace.connect(admin).setPlatformFee(newFee);
+      const fee = await marketplace.platformFeeBasisPoints();
+      expect(fee).to.equal(newFee);
+    });
+
+    it("should emit PlatformFeeUpdated", async () => {
+      const oldFee = await marketplace.platformFeeBasisPoints();
+      const newFee = 300; // 3%
+      await expect(marketplace.connect(admin).setPlatformFee(newFee))
+        .to.emit(marketplace, "PlatformFeeUpdated")
+        .withArgs(oldFee, newFee);
+    });
+
+    it("should revert if non-admin calls", async () => {
+      const newFee = 100;
+      await expect(
+        marketplace.connect(user_1).setPlatformFee(newFee)
+      ).to.be.revertedWith("Not admin");
+    });
+
+    it("should revert if new fee > 10%", async () => {
+      const newFee = 1001; // 10.01%
+      await expect(
+        marketplace.connect(admin).setPlatformFee(newFee)
+      ).to.be.revertedWith("Max fee is 10%");
+    });
+  });
+
   describe("Getters", () => {
     it("getListing() should return correct seller and price", async () => {
       await nftContract.connect(seller).mint();
