@@ -1,26 +1,43 @@
+// src/App.tsx
+
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import MyNFTs from "./pages/MyNFTs";
 import ListNFT from "./pages/List";
 import ConnectWalletPage from "./pages/ConnectWallet";
+import "./App.css";
 
 export default function App() {
   return (
     <Router>
-      <nav style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
-        <Link to="/" style={{ marginRight: "1rem" }}>Home</Link>
-        <Link to="/mynfts" style={{ marginRight: "1rem" }}>My NFTs</Link>
-        <Link to="/list"style={{ marginRight: "1rem" }}>List NFT</Link>
-        <Link to="/connect" style={{ marginRight: "1rem" }}>Connect Wallet</Link>
-      </nav>
+      <div className="app-container">
+        <header className="app-header">
+          <nav className="app-nav">
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/mynfts" className="nav-link">
+              My NFTs
+            </Link>
+            <Link to="/list" className="nav-link">
+              List NFT
+            </Link>
+            <Link to="/connect" className="nav-link">
+              Connect Wallet
+            </Link>
+          </nav>
+        </header>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/mynfts" element={<MyNFTs />} />
-        <Route path="/list" element={<ListNFT />} />
-        <Route path="/connect" element={<ConnectWalletPage />} />
-      </Routes>
+        <main className="app-main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mynfts" element={<MyNFTs />} />
+            <Route path="/list" element={<ListNFT />} />
+            <Route path="/connect" element={<ConnectWalletPage />} />
+          </Routes>
+        </main>
+      </div>
     </Router>
   );
 }

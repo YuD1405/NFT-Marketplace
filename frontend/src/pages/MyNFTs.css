@@ -21,15 +21,19 @@
   width: 200%;
   height: 200%;
   background: transparent;
+  /* Tăng chấm từ 2px lên 4px, 6px, 5px để sao lớn hơn */
   background-image:
-    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8) 50%, transparent 51%),
-    radial-gradient(2px 2px at 80px 70px, rgba(255, 255, 255, 0.6) 50%, transparent 51%),
-    radial-gradient(2px 2px at 150px 120px, rgba(255, 255, 255, 0.7) 50%, transparent 51%),
-    radial-gradient(2px 2px at 40px 180px, rgba(255, 255, 255, 0.5) 50%, transparent 51%),
-    radial-gradient(2px 2px at 180px 40px, rgba(255, 255, 255, 0.4) 50%, transparent 51%);
-  background-size: 200px 200px, 180px 180px, 150px 150px, 160px 160px, 140px 140px;
+    radial-gradient(4px 4px at 20px 30px, rgba(255, 255, 255, 0.8) 50%, transparent 51%),
+    radial-gradient(6px 6px at 80px 70px, rgba(255, 255, 255, 0.6) 50%, transparent 51%),
+    radial-gradient(5px 5px at 150px 120px, rgba(255, 255, 255, 0.7) 50%, transparent 51%),
+    radial-gradient(4px 4px at 40px 180px, rgba(255, 255, 255, 0.5) 50%, transparent 51%),
+    radial-gradient(5px 5px at 180px 40px, rgba(255, 255, 255, 0.4) 50%, transparent 51%);
+  /* Điều chỉnh background‐size nếu muốn khoảng cách giữa các chấm lớn hơn */
+  background-size: 300px 300px, 280px 280px, 250px 250px, 260px 260px, 240px 240px;
   animation: move-stars 60s linear infinite;
   z-index: 0;
+  pointer-events: none;
+
 }
 
 /* Animation nhẹ di chuyển lớp sao */
