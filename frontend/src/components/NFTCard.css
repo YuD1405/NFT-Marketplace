@@ -1,0 +1,191 @@
+/* src/components/NFTCard.css */
+
+/* Container chính của card */
+.nftcard-container {
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7),
+              0 0 8px rgba(255, 255, 255, 0.15);
+  width: 260px;
+  height: 360px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #000; /* fallback */
+}
+
+.nftcard-container:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9),
+              0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Tiêu đề (name) */
+.nftcard-title {
+  color: #f0f0f0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7),
+               0 0 12px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Khung chứa hình ảnh */
+.nftcard-image-wrapper {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+/* Ảnh NFT */
+.nftcard-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Nút “MORE” (action) */
+.nftcard-button {
+  background: rgba(50, 50, 50, 0.9);
+  color: #f0f0f0;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 1;
+}
+
+.nftcard-button:hover {
+  transform: scale(1.05);
+  background: rgba(80, 80, 80, 0.95);
+}
+
+/* -------------------------------------------- */
+/* Background gradient tối hơn cho từng element */
+
+/* 1. Light: vàng kem đậm, trắng ngả xám */
+.nftcard-light {
+  background: linear-gradient(
+    135deg,
+    #e6dfcb 0%,
+    #dcd4be 40%,
+    #d4c8ab 70%,
+    #e6dfcb 100%
+  );
+  border: 2px solid #d4c8ab;
+}
+
+/* 2. Fire: đỏ đậm, nâu đỏ, cam đậm */
+.nftcard-fire {
+  background: linear-gradient(
+    135deg,
+    #550000 0%,
+    #8b1a1a 40%,
+    #b23400 70%,
+    #8b1a1a 100%
+  );
+  border: 2px solid #b23400;
+}
+
+/* 3. Wind: xám xanh, xám đậm, xanh muối tiêu */
+.nftcard-wind {
+  background: linear-gradient(
+    135deg,
+    #a3b3be 0%,
+    #8e9ea8 40%,
+    #7a8b94 70%,
+    #8e9ea8 100%
+  );
+  border: 2px solid #7a8b94;
+}
+
+/* 4. Dark: tím than, đen tím, tím đậm */
+.nftcard-dark {
+  background: linear-gradient(
+    135deg,
+    #1e0026 0%,
+    #3a005c 40%,
+    #520078 70%,
+    #3a005c 100%
+  );
+  border: 2px solid #520078;
+}
+
+/* 5. Thunder: vàng rực, cam nhạt, xám vàng */
+.nftcard-thunder {
+  background: linear-gradient(
+    135deg,
+    #a68b00 0%,
+    #c4a600 40%,
+    #e0be00 70%,
+    #c4a600 100%
+  );
+  border: 2px solid #e0be00;
+}
+
+/* 6. Earth: nâu đậm, nâu đất, xám nâu */
+.nftcard-earth {
+  background: linear-gradient(
+    135deg,
+    #3d1f11 0%,
+    #573921 40%,
+    #725032 70%,
+    #573921 100%
+  );
+  border: 2px solid #725032;
+}
+
+/* 7. Metal: xám đen, xám thép đậm, xám kim loại */
+.nftcard-metal {
+  background: linear-gradient(
+    135deg,
+    #606060 0%,
+    #707070 40%,
+    #8a8a8a 70%,
+    #707070 100%
+  );
+  border: 2px solid #8a8a8a;
+}
+
+/* 8. Water: xanh biển đậm, xanh dương đậm, xám xanh */
+.nftcard-water {
+  background: linear-gradient(
+    135deg,
+    #00334e 0%,
+    #005577 40%,
+    #0077aa 70%,
+    #005577 100%
+  );
+  border: 2px solid #0077aa;
+}
+
+/* 9. Nature: xanh rừng đậm, xanh lá đậm, xanh lục tối */
+.nftcard-nature {
+  background: linear-gradient(
+    135deg,
+    #114411 0%,
+    #1a661a 40%,
+    #228822 70%,
+    #1a661a 100%
+  );
+  border: 2px solid #228822;
+}

@@ -1,0 +1,93 @@
+/* src/App.css */
+
+/* Toàn trang: nền galaxy (gradient + overlay sao), dùng overflow window để cuộn */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000; /* backup */
+  background: linear-gradient(45deg, #0d0d2b 0%, #0d0d2b 30%, #1a1a3d 70%, #0d0d2b 100%);
+  overflow: visible; /* Không tạo scroll nội bộ */
+  position: relative;
+}
+
+/* Lớp “sao” dưới nền */
+.app-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.8) 50%, transparent 51%),
+    radial-gradient(2px 2px at 80px 70px, rgba(255,255,255,0.6) 50%, transparent 51%),
+    radial-gradient(2px 2px at 150px 120px, rgba(255,255,255,0.7) 50%, transparent 51%),
+    radial-gradient(2px 2px at 40px 180px, rgba(255,255,255,0.5) 50%, transparent 51%),
+    radial-gradient(2px 2px at 180px 40px, rgba(255,255,255,0.4) 50%, transparent 51%);
+  background-size: 200px 200px, 180px 180px, 150px 150px, 160px 160px, 140px 140px;
+  animation: move-stars 60s linear infinite;
+  z-index: 0;
+}
+
+/* Animation di chuyển sao */
+@keyframes move-stars {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Header/nav bar */
+.app-header {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  padding: 1rem 2rem;
+}
+
+.app-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #00e5ff;
+}
+
+/* Main content */
+.app-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 2rem 1rem;
+}
+
+/* Đảm bảo nội dung chính có thể mở rộng cao */
+.app-main > * {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Các trang con (Home, MyNFTs, ListNFT, ConnectWallet) sẽ tự chịu layout riêng */

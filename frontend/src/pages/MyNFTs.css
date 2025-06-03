@@ -1,0 +1,116 @@
+/* src/pages/MyNFTs.css */
+
+/* Toàn trang: nền galaxy (gradient + overlay sao) */
+.my-nfts-container {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  color: #e0e0e0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #000; /* dự phòng */
+  background: linear-gradient(45deg, #0d0d2b 0%, #0d0d2b 30%, #1a1a3d 70%, #0d0d2b 100%);
+  /* Không set overflow nào ở đây: dùng cuộn của trình duyệt */
+}
+
+/* Lớp “sao” dạng :before với rất nhiều chấm trắng mờ */
+.my-nfts-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8) 50%, transparent 51%),
+    radial-gradient(2px 2px at 80px 70px, rgba(255, 255, 255, 0.6) 50%, transparent 51%),
+    radial-gradient(2px 2px at 150px 120px, rgba(255, 255, 255, 0.7) 50%, transparent 51%),
+    radial-gradient(2px 2px at 40px 180px, rgba(255, 255, 255, 0.5) 50%, transparent 51%),
+    radial-gradient(2px 2px at 180px 40px, rgba(255, 255, 255, 0.4) 50%, transparent 51%);
+  background-size: 200px 200px, 180px 180px, 150px 150px, 160px 160px, 140px 140px;
+  animation: move-stars 60s linear infinite;
+  z-index: 0;
+}
+
+/* Animation nhẹ di chuyển lớp sao */
+@keyframes move-stars {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Nội dung thực sự nằm trên layer sao */
+.my-nfts-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tiêu đề */
+.my-nfts-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #00e5ff;
+  text-shadow: 0 0 8px #00e5ff, 0 0 16px #00b8d4;
+}
+
+/* Nút mint */
+.my-nfts-button {
+  display: block;
+  margin: 0 auto 2rem auto;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(45deg, #00e5ff, #00b8d4);
+  border: none;
+  border-radius: 8px;
+  color: #1a1a1a;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 10px #00e5ff, 0 0 20px #00b8d4;
+}
+
+.my-nfts-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00e5ff, 0 0 30px #00b8d4;
+}
+
+.my-nfts-button:disabled {
+  background: #444;
+  color: #888;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Lưới chứa các card: không có overflow nội bộ */
+.my-nfts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  /* Bỏ overflow-x: auto và mọi kiểu ẩn scrollbar */
+  overflow: visible;
+}
+
+/* Thông báo khi không có NFT hoặc đang loading */
+.my-nfts-container p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .my-nfts-title {
+    font-size: 2.5rem;
+  }
+  .my-nfts-button {
+    font-size: 1rem;
+  }
+}
