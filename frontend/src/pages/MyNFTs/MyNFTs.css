@@ -56,11 +56,18 @@
 
 /* Tiêu đề */
 .my-nfts-title {
+  font-family: 'Press Start 2P';
   font-size: 3rem;
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #00e5ff;
-  text-shadow: 0 0 8px #00e5ff, 0 0 16px #00b8d4;
+
+  /* Màu xanh dương pastel dễ chịu hơn */
+  color: #91e5f6;
+
+  /* Glow nhẹ – không quá chói */
+  text-shadow:
+    0 0 4px rgba(145, 229, 246, 0.5),
+    0 0 8px rgba(96, 165, 250, 0.3);
 }
 
 /* Nút mint */
@@ -76,7 +83,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0 10px #00e5ff, 0 0 20px #00b8d4;
+  box-shadow: 0 0 10px #00e5ff, 0 0 10px #00b8d4;
 }
 
 .my-nfts-button:hover {
@@ -109,6 +116,12 @@
   margin-top: 2rem;
 }
 
+.my-nfts-container,
+.my-nfts-content {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .my-nfts-title {
@@ -118,3 +131,4 @@
     font-size: 1rem;
   }
 }
+

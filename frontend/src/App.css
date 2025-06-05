@@ -1,4 +1,14 @@
 /* src/App.css */
+/* App.css */
+
+.app-main.home-full {
+  padding: 0;         /* xoá padding cho hero */
+}
+
+.app-main.home-full > * {
+  max-width: unset;   /* bỏ giới hạn chiều ngang */
+  margin: 0;
+}
 
 /* 1. Reset và thiết lập toàn cục */
 html,
@@ -17,19 +27,14 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #000; /* backup */
-  background: linear-gradient(
-    45deg,
-    #0d0d2b 0%,
-    #0d0d2b 30%,
-    #1a1a3d 70%,
-    #0d0d2b 100%
-  );
+
+  background: linear-gradient(180deg, #0d1127 0%, #1b183f 100%);
   position: relative;
-  overflow: visible; /* chỉ dùng scroll trình duyệt */
+  overflow: visible;
 }
 
 .app-container::before {
+  opacity: 0.3;
   content: "";
   position: absolute;
   top: 0;

@@ -1,0 +1,519 @@
+/* src/pages/Home.css */
+
+
+/* ===== Global Page Styling ===== */
+.home-page {
+  color: #e0e0e0;
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+}
+
+
+/* ===== Hero Section ===== */
+.hero-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #0d1127); /* đổi màu cuối tuỳ theo nền bạn dùng */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url("https://yud1405.github.io/NFT_marketplace_Img/background_home.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Tầng overlay tối mờ */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Hiệu ứng sao – nằm trên nền, dưới text */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image:
+    radial-gradient(3px 3px at 30px 40px, rgba(255, 255, 255, 0.6) 50%, transparent 51%),
+    radial-gradient(4px 4px at 80px 120px, rgba(255, 255, 255, 0.4) 50%, transparent 51%),
+    radial-gradient(3px 3px at 160px 200px, rgba(255, 255, 255, 0.5) 50%, transparent 51%);
+  background-size: 250px 250px, 220px 220px, 200px 200px;
+  animation: move-hero-stars 100s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes move-hero-stars {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Text luôn nằm trên cùng */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.hero-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3.85rem;
+  font-weight: 700;
+
+  background: linear-gradient(
+    100deg,
+    #f33763 0%,
+    #57d6f0 20%,
+    #6cf588 40%,
+    #f7d456 60%,
+    #9160ee 80%,
+    #4646fd 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.3),
+    0 0 6px rgba(200, 220, 255, 0.2),
+    0 0 8px rgba(180, 180, 255, 0.15);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-family: Orbitron, sans-serif;
+  font-size: 1.25rem;
+  color: #c0c0c0;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(45deg, #a8d8ea, #3b8ea5);
+  border: 2px solid #3b8ea5;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 0 6px rgba(168, 216, 234, 0.7), 0 0 12px rgba(59, 142, 165, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(168, 216, 234, 0.9), 0 0 20px rgba(59, 142, 165, 0.7);
+}
+
+
+/* ===== Section Header (dùng chung) ===== */
+.section-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  display: inline-block;
+  padding: 0 1rem;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Vì mỗi section sẽ có màu khác nhau nên bỏ màu ở đây, gán cụ thể phía dưới */
+
+
+/* ===== Divider giữa các section ===== */
+.section-divider {
+  position: relative;
+  width: 100vw;
+  height: 4px;
+  background: rgba(200, 200, 200, 0.635); /* màu xám nhạt, không chói */
+  border-radius: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 1.5rem 0; /* giảm khoảng cách (margin-top và margin-bottom) */
+  z-index: 1;
+}
+
+
+/* ===== About Us Section (Element: “Air/Light”) ===== */
+.story-section {
+  margin: 3rem auto 0;  /* top margin 3rem, bottom 0 vì divider bên dưới */
+  max-width: 1200px;
+  padding: 2rem 2rem 0;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.story-section .section-title {
+  font-family: 'Press Start 2P', cursive;
+  color: #f0f8ff; /* light pastel – “Light” element */
+  text-shadow: 0 0 4px rgba(240, 248, 255, 0.6);
+}
+
+.story-content {
+  padding: 0rem 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.story-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.story-text p {
+  margin-bottom: 1rem;
+}
+
+.story-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); */
+  transition: transform 0.2s ease;
+  animation: pulseZoom 3s ease-in-out infinite;
+}
+
+.story-image img:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+
+
+/* ===== Mint NFTs Section (Element: “Nature”) ===== */
+.Mint-section {
+  margin: 0 auto;  /* top = 0 vì divider đã tạo */
+  max-width: 1200px;
+  padding: 2rem 2rem 0;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.Mint-section .section-title {
+  font-family: 'Press Start 2P', cursive;
+  color: #a3cf62; /* màu xanh lá dịu – “Nature” element */
+  text-shadow: 0 0 4px rgba(163, 207, 98, 0.6);
+}
+
+.Mint-section .section-header {
+  margin-bottom: 1rem;
+}
+
+.Mint-content {
+  padding: 0rem 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.Mint-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.Mint-text p {
+  margin-bottom: 1rem;
+}
+
+.Mint-text .feature-button {
+  font-family: Orbitron;
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background: #a3cf62; /* xanh lá pastel */
+  color: #1a1a1a;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 6px rgba(163, 207, 98, 0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Mint-text .feature-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(163, 207, 98, 0.9);
+}
+
+.Mint-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Mint-image img {
+  max-width: 90%;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); */
+  transition: transform 0.2s ease;
+  animation: pulseZoom 3s ease-in-out infinite;
+}
+
+.Mint-image img:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+
+
+/* ===== My Collection Section (Element: “Water”) ===== */
+.Collection-section {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2rem 2rem 0;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.Collection-section .section-title {
+  font-family: 'Press Start 2P', cursive;
+  color: #5dade2; /* xanh dương dịu – “Water” element */
+  text-shadow: 0 0 4px rgba(93, 173, 226, 0.6);
+}
+
+.Collection-section .section-header {
+  margin-bottom: 1rem;
+}
+
+.Collection-content {
+  padding: 0rem 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.Collection-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Collection-image img {
+  max-width: 90%;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); */
+  transition: transform 0.2s ease;
+  animation: pulseZoom 3s ease-in-out infinite;
+}
+
+.Collection-image img:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+
+.Collection-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.Collection-text p {
+  margin-bottom: 1rem;
+}
+
+.Collection-text .feature-button {
+  font-family: Orbitron;
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background: #5dade2; /* xanh dương pastel */
+  color: #1a1a1a;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 6px rgba(93, 173, 226, 0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Collection-text .feature-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(93, 173, 226, 0.9);
+}
+
+
+/* ===== Marketplace Section (Element: “Metal/Thunder”) ===== */
+.Marketplace-section {
+  margin: 0 auto 4rem;
+  max-width: 1200px;
+  padding: 2rem 2rem 0;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.Marketplace-section .section-title {
+  font-family: 'Press Start 2P', cursive;
+  color: #f5b041; /* vàng sẫm – “Thunder/Metal” element */
+  text-shadow: 0 0 4px rgba(245, 176, 65, 0.6);
+}
+
+.Marketplace-section .section-header {
+  margin-bottom: 1rem;
+}
+
+.Marketplace-content {
+  padding: 0rem 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.Marketplace-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Marketplace-image img {
+  max-width: 90%;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); */
+  transition: transform 0.2s ease;
+  animation: pulseZoom 3s ease-in-out infinite;
+}
+
+.Marketplace-image img:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+
+.Marketplace-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.Marketplace-text p {
+  margin-bottom: 1rem;
+}
+
+.Marketplace-text .feature-button {
+  font-family: Orbitron;
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background: #f5b041; /* vàng pastel */
+  color: #1a1a1a;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 6px rgba(245, 176, 65, 0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Marketplace-text .feature-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(245, 176, 65, 0.9);
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 992px) {
+  .story-content,
+  .Mint-content,
+  .Collection-content,
+  .Marketplace-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .story-image img,
+  .Mint-image img,
+  .Collection-image img,
+  .Marketplace-image img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .hero-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .story-text,
+  .Mint-text p,
+  .Collection-text p,
+  .Marketplace-text p {
+    font-size: 0.9rem;
+  }
+  .feature-button,
+  .story-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+@keyframes pulseZoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

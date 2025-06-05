@@ -1,3 +1,5 @@
+// src/hooks/useWallet.ts
+
 import { useEffect, useState, useCallback } from "react";
 import { ethers } from "ethers";
 
@@ -12,6 +14,7 @@ export function useWallet() {
   const [account, setAccount] = useState<string | null>(null);
   const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
   const [signer, setSigner] = useState<ethers.JsonRpcSigner | null>(null);
+  const [initialized, setInitialized] = useState(false);
 
   // 1. Khi hook mount, kiểm tra xem MetaMask có lưu account nào sẵn hay không
   useEffect(() => {
@@ -26,10 +29,16 @@ export function useWallet() {
             setProvider(browserProvider);
             const s = await browserProvider.getSigner();
             setSigner(s);
+            console.log("✅ Đã kết nối với account:", accounts[0]);
           }
         } catch (error) {
           console.error("Error when checking connected accounts:", error);
+        } finally {
+          setInitialized(true);
         }
+      } else {
+        // Nếu không có window.ethereum, vẫn cần đánh dấu đã hoàn thành check
+        setInitialized(true);
       }
     };
 
@@ -52,6 +61,7 @@ export function useWallet() {
         setProvider(browserProvider);
         const s = await browserProvider.getSigner();
         setSigner(s);
+        console.log("✅ Wallet kết nối với:", accounts[0]);
       }
     } catch (err) {
       console.error("❌ Wallet connection failed:", err);
@@ -62,7 +72,6 @@ export function useWallet() {
   useEffect(() => {
     if (!window.ethereum) return;
 
-    // Ép kiểu window.ethereum thành any để có thể gọi .on(...) và .removeListener(...)
     const ethAny = window.ethereum as any;
 
     const handleAccountsChanged = async (accounts: string[]) => {
@@ -74,7 +83,6 @@ export function useWallet() {
       } else {
         // Cập nhật lại account
         setAccount(accounts[0]);
-        // Cập nhật provider & signer mới
         const browserProvider = new ethers.BrowserProvider(window.ethereum!);
         setProvider(browserProvider);
         const s = await browserProvider.getSigner();
@@ -101,5 +109,5 @@ export function useWallet() {
     };
   }, []);
 
-  return { account, provider, signer, connect };
+  return { account, provider, signer, connect, initialized };
 }

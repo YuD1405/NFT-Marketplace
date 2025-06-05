@@ -1,0 +1,98 @@
+/* ====== Nav.css ====== */
+
+/* ===== Container của nav ===== */
+.nav-container {
+  background: linear-gradient(135deg, #0d0d2b 0%, #1a1a3d 100%);
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* Danh sách link */
+.nav-list {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Mỗi link chung */
+.nav-link {
+  position: relative;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  transition: all 0.2s ease;
+  text-shadow: none !important;
+}
+
+/* Mỗi link theo vị trí màu riêng */
+.nav-list .nav-link:nth-child(1) {
+  color: #f87171 !important; /* đỏ */
+}
+.nav-list .nav-link:nth-child(2) {
+  color: #60a5fa !important; /* xanh dương */
+}
+.nav-list .nav-link:nth-child(3) {
+  color: #facc15 !important; /* vàng */
+}
+.nav-list .nav-link:nth-child(4) {
+  color: #a78bfa !important; /* tím */
+}
+
+/* Hover + Active - đồng bộ màu text + border + background */
+.nav-list .nav-link:nth-child(1):hover,
+.nav-list .nav-link:nth-child(1).active {
+  color: #f87171 !important;
+  border-color: #f87171 !important;
+  background: rgba(248, 113, 113, 0.1) !important;
+  box-shadow: 0 0 6px rgba(248, 113, 113, 0.3),
+              0 0 12px rgba(248, 113, 113, 0.2) !important;
+}
+
+.nav-list .nav-link:nth-child(2):hover,
+.nav-list .nav-link:nth-child(2).active {
+  color: #60a5fa !important;
+  border-color: #60a5fa !important;
+  background: rgba(96, 165, 250, 0.1) !important;
+  box-shadow: 0 0 6px rgba(96, 165, 250, 0.3),
+              0 0 12px rgba(96, 165, 250, 0.2) !important;
+}
+
+.nav-list .nav-link:nth-child(3):hover,
+.nav-list .nav-link:nth-child(3).active {
+  color: #facc15 !important;
+  border-color: #facc15 !important;
+  background: rgba(250, 204, 21, 0.1) !important;
+  box-shadow: 0 0 6px rgba(250, 204, 21, 0.3),
+              0 0 12px rgba(250, 204, 21, 0.2) !important;
+}
+
+.nav-list .nav-link:nth-child(4):hover,
+.nav-list .nav-link:nth-child(4).active {
+  color: #a78bfa !important;
+  border-color: #a78bfa !important;
+  background: rgba(167, 139, 250, 0.1) !important;
+  box-shadow: 0 0 6px rgba(167, 139, 250, 0.3),
+              0 0 12px rgba(167, 139, 250, 0.2) !important;
+}
+
+/* Media query cho màn nhỏ */
+@media (max-width: 600px) {
+  .nav-list {
+    gap: 1rem;
+  }
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

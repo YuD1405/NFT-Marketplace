@@ -1,0 +1,84 @@
+.connect-wallet-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: transparent;
+  padding: 2rem;
+}
+
+.connect-wallet-card {
+  background: linear-gradient(135deg, #141436, #1f1f4d);
+  border-radius: 20px;
+  padding: 4rem 3rem; /* Tăng padding */
+  box-shadow: 0 0 30px rgba(173, 216, 230, 0.1),
+              0 0 60px rgba(173, 216, 230, 0.05);
+  text-align: center;
+  max-width: 700px; /* Tăng từ 520px lên */
+  width: 100%;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #e0e0e0;
+}
+
+.connect-icon-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.emoji-lock {
+  font-size: 2rem;
+}
+
+.connect-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  line-height: 1.4;
+
+  /* Màu tím pastel */
+  color: #caa9fa;
+
+  /* Glow nhẹ dịu */
+  text-shadow:
+    0 0 4px rgba(202, 169, 250, 0.5),
+    0 0 8px rgba(167, 139, 250, 0.3);
+}
+
+.connect-description {
+  font-size: 1.1rem;
+  color: #cccccc;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.connect-wallet-button {
+  font-family: 'Space Grotesk', sans-serif;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #a8d8ea, #6db3c5);
+  border: none;
+  border-radius: 12px;
+  color: #1a1a1a;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgba(168, 216, 234, 0.4),
+              0 0 20px rgba(109, 179, 197, 0.2);
+}
+
+.connect-wallet-button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 16px rgba(168, 216, 234, 0.8),
+              0 0 24px rgba(109, 179, 197, 0.5);
+}
+
+.connect-wallet-button.connected {
+  background: linear-gradient(135deg, #a8d8ea, #5eb5cc);
+  color: #ffffff;
+  cursor: default;
+}
