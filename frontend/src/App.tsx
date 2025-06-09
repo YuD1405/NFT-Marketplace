@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Home from "./pages/Home/Home";
 import MyNFTs from "./pages/MyNFTs/MyNFTs";
 import ListNFT from "./pages/Listing/List";
+import BuyNFT from "./pages/Buy/Buy";
 import ConnectWalletPage from "./pages/ConnectWallet/ConnectWallet";
 import { Nav } from "./components/Nav/Nav";
 import "./App.css";
@@ -22,6 +23,7 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/mynfts" element={<MyNFTs />} />
           <Route path="/list" element={<ListNFT />} />
+          <Route path="/buy" element={<BuyNFT/>} />
           <Route path="/connect" element={<ConnectWalletPage />} />
         </Routes>
       </main>

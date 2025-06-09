@@ -16,21 +16,30 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: hidden;
 }
 
 #root {
   height: 100%;
 }
 
+html, body, #root, .app-container {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 /* 2. App container: nền galaxy + sao */
 .app-container {
   min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
 
   background: linear-gradient(180deg, #0d1127 0%, #1b183f 100%);
   position: relative;
-  overflow: visible;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .app-container::before {
@@ -92,10 +101,11 @@ body {
 
 /* 4. Nội dung chính */
 .app-main {
+  flex: none;
   position: relative;
   z-index: 1;
-  flex: 1;
-  padding: 2rem 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .app-main > * {
@@ -117,4 +127,10 @@ a {
   .nav-link {
     font-size: 0.9rem;
   }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }

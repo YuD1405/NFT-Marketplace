@@ -1,0 +1,4 @@
+ethers.ut// Kết quả: "10000.0"
+const [acc] = await ethers.getSigners();
+(ethers.u
+const [acc] = await ethers.getSigners();

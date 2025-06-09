@@ -1,0 +1,48 @@
+.listing-card {
+  background: #1e1e2f;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
+  color: #e0e0ff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.listing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.4);
+}
+
+.listing-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.listing-card strong {
+  color: #8ab4f8;
+}
+
+.listing-card button {
+  margin-top: auto;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.listing-card button:disabled {
+  background: #7c7cff99;
+  cursor: not-allowed;
+}
+
+.listing-card button:hover:not(:disabled) {
+  background: #3730a3;
+}

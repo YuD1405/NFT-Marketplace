@@ -17,6 +17,9 @@ export function Nav() {
         <NavLink to="/list" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
           List NFT
         </NavLink>
+        <NavLink to="/buy" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+          Buy NFT
+        </NavLink>
         <NavLink to="/connect" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
           Connect Wallet
         </NavLink>

@@ -78,29 +78,30 @@ export default function Home() {
       {/* ===== My Collection Section ===== */}
       <section className="Collection-section">
         <div className="section-header">
-          <h2 className="section-title">MY COLLECTION</h2>
+          <h2 className="section-title">MY LISTINGS</h2>
         </div>
         <div className="Collection-content">
           <div className="Collection-text">
             <p>
-              Your personal armory—view, organize, and showcase all the elemental NFTs you own. From radiant light weapons to shadowy relics, keep your collection battle-ready and beautifully displayed.
+              Showcase your NFTs currently listed for sale. Manage, track, and update your prices to maximize your selling potential.
             </p>
 
-            <Link to="/mynfts" className="feature-button">
-              View My NFTs
+            <Link to="/list" className="feature-button">
+              List a New NFT
             </Link>
           </div>
           <div className="Collection-image">
             <img
               src="https://yud1405.github.io/NFT_marketplace_Img/feature_collection.png"
-              alt="My Collection"
+              alt="My Listings"
             />
           </div>
         </div>
 
-        {/* Divider giữa My Collection và Marketplace */}
+        {/* Divider between My Listings and other sections */}
         <div className="section-divider" />
       </section>
+
 
       {/* ===== Marketplace Section ===== */}
       <section className="Marketplace-section">
@@ -118,7 +119,7 @@ export default function Home() {
             <p>
               Trade with other adventurers in real-time. List, buy, and sell elemental NFT weapons with low fees and instant transactions. Browse hundreds of listings—fire blades, frost spears, thunder bows, and more—all waiting for a new wielder.
             </p>
-            <Link to="/list" className="feature-button">
+            <Link to="/buy" className="feature-button">
               Go to Marketplace
             </Link>
           </div>
