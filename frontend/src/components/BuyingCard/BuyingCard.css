@@ -1,0 +1,64 @@
+/* Container card phong cách pixel */
+.buying-card.pixel-card {
+  width: 220px;
+  border-radius: 20px;
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hover effect nhẹ */
+.buying-card.pixel-card:hover {
+  transform: scale(1.04);
+}
+
+/* Tên NFT (phía trên) */
+.pixel-name {
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+/* Hình ảnh pixel trung tâm */
+.pixel-image {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  margin: 0 auto 1.2rem;
+  image-rendering: pixelated;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Nút MORE / SELECTED */
+.pixel-button {
+  margin-top: auto;
+  background: #2c2c2c;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.pixel-button:hover {
+  background: #444;
+}
+
+/* Trạng thái được chọn: ánh sáng nổi bật */
+.buying-card.selected {
+  outline: 3px solid gold;
+  box-shadow: 0 0 12px gold, 0 0 24px rgba(255, 215, 0, 0.4);
+}

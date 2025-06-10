@@ -1,16 +1,16 @@
-// src/pages/MyNFTs.tsx
-
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNFT } from "../../hooks/useNFT";
 import { useWallet } from "../../hooks/useWallet";
 import { Navigate } from "react-router-dom";
 import { NFTCard } from "../../components/NFTCard/NFTCard";
 import "./MyNFTs.css";
 import Loader from "../../components/Loader/Loader";
+import { estimatePrice } from "../../utils/estimatePrice";
 
 export default function MyNFTs() {
   const { account, initialized } = useWallet();
   const { nfts, fetchMyNFTs, mint, loading } = useNFT();
+  const [selectedNFT, setSelectedNFT] = useState<typeof nfts[0] | null>(null);
 
   useEffect(() => {
     if (account) {
@@ -18,44 +18,87 @@ export default function MyNFTs() {
     }
   }, [account, fetchMyNFTs]);
 
-  if (!initialized) {
-    return null; // hoặc <p>Loading...</p>
-  }
-
-  // Nếu đã check xong mà vẫn chưa có account → redirect
-  if (!account) {
-    return <Navigate to="/connect" replace />;
-  }
+  if (!initialized) return null;
+  if (!account) return <Navigate to="/connect" replace />;
 
   return (
     <div className="my-nfts-container">
       <div className="my-nfts-content">
         <h2 className="my-nfts-title">My NFTs</h2>
 
-        <button onClick={mint} disabled={loading} className="my-nfts-button">
-          {loading ? "Processing..." : "Mint NFT"}
-        </button>
+        {!selectedNFT ? (
+          <>
+            <button onClick={mint} disabled={loading} className="my-nfts-button">
+              {loading ? "Processing..." : "Mint NFT"}
+            </button>
 
-        {loading && nfts.length === 0 && <Loader />}
+            {loading && nfts.length === 0 && <Loader />}
 
-        {!loading && nfts.length === 0 && (
-          <p style={{ textAlign: "center", fontSize: "1.2rem", color: "#ccc" }}>
-            No NFTs found.
-          </p>
+            {!loading && nfts.length === 0 && (
+              <p style={{ textAlign: "center", fontSize: "1.2rem", color: "#ccc" }}>
+                No NFTs found.
+              </p>
+            )}
+
+            <div className="my-nfts-list">
+              {nfts.map((nft) => (
+                <NFTCard
+                  key={nft.tokenId}
+                  tokenId={nft.tokenId}
+                  name={nft.name}
+                  description={nft.description}
+                  imageUrl={nft.image}
+                  element={nft.element}
+                  onClick={() => {
+                    setSelectedNFT(nft);
+                    const container = document.querySelector(".app-container");
+                    if (container) {
+                      container.scrollTo({ top: 0 });
+                    }
+                  }}
+                  attributes={nft.attributes}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="my-selected-nft-wrapper">
+            <div className="my-selected-nft-card">
+              <NFTCard
+                tokenId={selectedNFT.tokenId}
+                name={selectedNFT.name}
+                description={selectedNFT.description}
+                imageUrl={selectedNFT.image}
+                element={selectedNFT.element}
+                attributes={selectedNFT.attributes}
+              />
+            </div>
+
+            <div className="my-selected-nft-info">
+              <h3 style={{ color: "#ffd700", marginBottom: "1rem" }}>{selectedNFT.name}</h3>
+
+              {(() => {
+                const get = (key: string) =>
+                  selectedNFT.attributes.find(attr => attr.trait_type === key)?.value ?? "Unknown";
+                const price = estimatePrice(selectedNFT.attributes); 
+                
+                return (
+                  <>
+                    <p><strong>Element:</strong> {selectedNFT.element}</p>
+                    <p><strong>Rarity:</strong> {get("Rarity")}</p>
+                    <p><strong>Weapon Type:</strong> {get("Weapon Type")}</p>
+                    <p><strong>Skill:</strong> {get("Skill")}</p>
+                    <p><strong>Estimate Price:</strong> {price} ETH</p>
+
+                    <div className="form-buttons">
+                      <button onClick={() => setSelectedNFT(null)}>🔙 Choose Another</button>
+                    </div>
+                  </>
+                );
+              })()}
+            </div>
+          </div>
         )}
-
-        <div className="my-nfts-list">
-          {nfts.map((nft) => (
-            <NFTCard
-              key={nft.tokenId}
-              tokenId={nft.tokenId}
-              name={nft.name}
-              description={nft.description}
-              imageUrl={nft.image}
-              element={nft.element} // truyền thêm element
-            />
-          ))}
-        </div>
       </div>
     </div>
   );

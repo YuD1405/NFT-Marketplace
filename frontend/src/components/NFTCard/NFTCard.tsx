@@ -9,12 +9,13 @@ interface NFTCardProps {
   description: string;
   imageUrl: string;
   element: string; // giá trị element: "Fire", "Water", ...
+  onClick?: () => void;
+  attributes: { trait_type: string; value: string }[];
 }
 
-export function NFTCard({ tokenId, name, description, imageUrl, element }: NFTCardProps) {
+export function NFTCard({ tokenId, name, description, imageUrl, element, onClick, }: NFTCardProps) {
   // Chuyển element thành chuỗi class (lowercase) để khớp CSS, ví dụ "Fire" → "fire"
   const el = element.toLowerCase();
-  console.log(el);
   return (
     <div className={`nftcard-container nftcard-${el}`}>
       {/* Tiêu đề NFT */}
@@ -26,7 +27,9 @@ export function NFTCard({ tokenId, name, description, imageUrl, element }: NFTCa
       </div>
 
       {/* Nút “MORE” */}
-      <button className="nftcard-button">MORE</button>
+      <button className="nftcard-button" onClick={onClick}>
+        MORE
+      </button>
     </div>
   );
 }

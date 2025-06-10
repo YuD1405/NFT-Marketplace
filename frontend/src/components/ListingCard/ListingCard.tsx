@@ -1,32 +1,36 @@
+// src/components/NFTCard.tsx
+
 import React from "react";
 import "./ListingCard.css";
+import { estimatePrice } from "../../utils/estimatePrice";
 
-interface Props {
-  nftAddress: string;
+interface NFTCardProps {
   tokenId: number;
-  price: string; // display as string
-  seller: string;
-  onBuy: () => void;
-  disabled?: boolean;
+  name: string;
+  description: string;
+  imageUrl: string;
+  element: string;
+  attributes: { trait_type: string; value: string }[];
 }
 
-export const ListingCard: React.FC<Props> = ({
-  nftAddress,
-  tokenId,
-  price,
-  seller,
-  onBuy,
-  disabled,
-}) => {
+export function ListingCard({ tokenId, name, description, imageUrl, element, attributes,}: NFTCardProps) {
+  // Chuyển element thành chuỗi class (lowercase) để khớp CSS, ví dụ "Fire" → "fire"
+  const el = element.toLowerCase();
+  const price = estimatePrice(attributes); 
+
   return (
-    <div className="listing-card">
-      <p><strong>NFT:</strong> {nftAddress}</p>
-      <p><strong>Token ID:</strong> {tokenId}</p>
-      <p><strong>Giá:</strong> {Number(price) / 1e18} ETH</p>
-      <p><strong>Người bán:</strong> {seller}</p>
-      <button onClick={onBuy} disabled={disabled}>
-        {disabled ? "Đang xử lý..." : "Mua NFT"}
-      </button>
+    <div className={`listingcard-container listingcard-${el}`}>
+      {/* Tiêu đề NFT */}
+      <h3 className="listingcard-title">{name}</h3>
+
+      {/* Hình ảnh NFT */}
+      <div className="listingcard-image-wrapper">
+        <img src={imageUrl} alt={name} className="listingcard-image" />
+      </div>
+
+      {/* Giá dự đoán */}
+      <div className="listingcard-price">Est. Price: {price} ETH</div>
+      
     </div>
   );
-};
+}

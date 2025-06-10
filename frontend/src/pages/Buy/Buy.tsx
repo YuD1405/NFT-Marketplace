@@ -1,23 +1,32 @@
 import React, { useState } from "react";
-import { ListingCard } from "../../components/ListingCard/ListingCard";
+import { BuyingCard } from "../../components/BuyingCard/BuyingCard";
 import "./Buy.css";
 
 export default function Buy() {
-  // Dữ liệu giả, mock listings để hiển thị giao diện
-  const [listings] = useState([
+    // Dữ liệu giả, mock listings để hiển thị giao diện
+    const [listings] = useState([
     {
       nft: "0xAbc123...def",
       tokenId: 1,
-      price: BigInt("1000000000000000000"), // 1 ETH
+      price: BigInt("1000000000000000000"),
       seller: "0xSellerAddress123",
+      name: "Flame Sword",
+      image: "https://example.com/images/flame_sword.png",
+      element: "Fire",
+      rarity: "Epic",
     },
     {
       nft: "0xDef456...abc",
       tokenId: 2,
-      price: BigInt("500000000000000000"), // 0.5 ETH
+      price: BigInt("500000000000000000"),
       seller: "0xAnotherSeller456",
+      name: "Ice Shield",
+      image: "https://example.com/images/ice_shield.png",
+      element: "Water",
+      rarity: "Rare",
     },
   ]);
+
 
   const [isBuying, setIsBuying] = useState(false);
 
@@ -32,7 +41,7 @@ export default function Buy() {
   return (
     <div className="buy-container">
       <div className="buy-content">
-        <h2 className="buy-title">NFT Marketplace (UI Demo)</h2>
+        <h2 className="buy-title">NFT Marketplace</h2>
 
         {listings.length === 0 && (
           <p style={{ textAlign: "center", fontSize: "1.2rem", color: "#ccc" }}>
@@ -42,11 +51,13 @@ export default function Buy() {
 
         <div className="buy-list">
           {listings.map((item) => (
-            <ListingCard
+            <BuyingCard
               key={`${item.nft}-${item.tokenId}`}
-              nftAddress={item.nft}
-              tokenId={item.tokenId}
-              price={item.price.toString()}
+              image={item.image}
+              name={item.name}
+              element={item.element}
+              rarity={item.rarity}
+              price={(Number(item.price) / 1e18).toString()}
               seller={item.seller}
               onBuy={() => buyNFT(item.nft, item.tokenId, item.price)}
               disabled={isBuying}

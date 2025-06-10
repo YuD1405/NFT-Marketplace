@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import NFTListForm from "./ListingForm";  
+import YourListing from "./YourListing";
 import "./List.css";
+import { useWallet } from "../../hooks/useWallet";
+import { NFT_ADDRESS } from "../../config";
+//import { useMarketplace } from "../../hooks/useMarketplace";
 
 export default function ListNFT() {
   const [activeTab, setActiveTab] = useState<"list" | "yourListings">("list");
+  const { signer, provider } = useWallet();
+
+  const nftAddress = NFT_ADDRESS;
 
   return (
     <div className="list-nft-container">
@@ -11,23 +19,27 @@ export default function ListNFT() {
       <div className="tab-wrapper">
         <button
           className={`tab-button ${activeTab === "list" ? "active" : ""}`}
-          onClick={() => setActiveTab("list")}
+          onClick={() => {setActiveTab("list");}}
         >
           List NFT
         </button>
         <button
           className={`tab-button ${activeTab === "yourListings" ? "active" : ""}`}
-          onClick={() => setActiveTab("yourListings")}
+          onClick={() => {setActiveTab("yourListings");}}
         >
           Your Listings
         </button>
       </div>
-    
+
       <div className="tab-content-box">
         {activeTab === "list" ? (
-          <div className="tab-content">📝 Form to list your NFT here.</div>
+          <div className="tab-content">
+            <NFTListForm signer={signer} provider={provider} nftAddress={nftAddress} />
+          </div>
         ) : (
-          <div className="tab-content">📦 NFTs you’ve listed on the marketplace.</div>
+          <div className="tab-content">
+            <YourListing signer={signer} provider={provider} nftAddress={nftAddress} />
+          </div>
         )}
       </div>
     </div>

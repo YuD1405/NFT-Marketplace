@@ -10,7 +10,11 @@ interface NFTItem {
   name: string;
   description: string;
   image: string;
-  element: string; // thêm trường element
+  element: string;
+  weaponType: string;
+  rarity: string;
+  skill: string;
+  attributes: { trait_type: string; value: string }[];
 }
 
 export function useNFT() {
@@ -42,15 +46,23 @@ export function useNFT() {
         const meta = await res.json();
 
         // Lấy trường element từ JSON metadata
-        const element = meta.attributes[0].value || "Nature";
-
+        const element = meta.attributes[0].value || "Unknown";
+        const weaponType = meta.attributes[1].value || "Unknown";
+        const rarity = meta.attributes[2].value || "Unknown";
+        const skill = meta.attributes[3].value || "Unknown";
+        const attributes = meta.attributes;
         const imageUrl = meta.image ? ipfsToHttps(meta.image) : "";
+
         owned.push({
           tokenId,
           name: meta.name,
           description: meta.description,
           image: imageUrl,
           element,
+          weaponType,
+          rarity,
+          skill,
+          attributes,
         });
       }
       setNfts(owned);

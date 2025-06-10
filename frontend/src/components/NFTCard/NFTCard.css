@@ -27,7 +27,7 @@
 /* Tiêu đề (name) */
 .nftcard-title {
   color: #f0f0f0;
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 2vw, 1.1rem); /* co giãn theo chiều ngang */
   font-weight: 700;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.7),
                0 0 12px rgba(0, 0, 0, 0.5);
@@ -35,7 +35,10 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
-  z-index: 1;
+  white-space: normal; /* cho phép xuống dòng */
+  word-break: break-word; /* tự xuống dòng tại bất kỳ vị trí */
+  line-height: 1.2;
+  max-height: 2.4em;
 }
 
 /* Khung chứa hình ảnh */

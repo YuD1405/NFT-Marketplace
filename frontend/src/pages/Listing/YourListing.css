@@ -1,0 +1,17 @@
+.your-listings {
+  padding: 1rem;
+}
+
+.no-listings {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.listing-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
