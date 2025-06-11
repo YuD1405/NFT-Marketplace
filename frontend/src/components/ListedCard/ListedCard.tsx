@@ -1,44 +1,43 @@
-// src/components/ListedCard/ListedCard.tsx
+// src/components/ListedCard.tsx
+
 import React from "react";
 import "./ListedCard.css";
 
-interface Attribute {
-  trait_type: string;
-  value: string;
-}
-
-interface Props {
+interface ListedCardProps {
   tokenId: number;
   name: string;
   description: string;
   imageUrl: string;
   element: string;
-  price: bigint;
+  attributes: { trait_type: string; value: string }[];
+  price?: string; 
   seller: string;
-  attributes: Attribute[];
 }
 
-export const ListedCard = ({
+export function ListedCard({
   tokenId,
   name,
   description,
   imageUrl,
   element,
+  attributes,
   price,
   seller,
-  attributes,
-}: Props) => {
+}: ListedCardProps) {
+  const el = element.toLowerCase();
+  const displayPrice = price;
+
   return (
-    <div className="listed-card">
-      <img src={imageUrl} alt={name} className="listed-card-image" />
-      <div className="listed-card-content">
-        <h3>{name}</h3>
-        <p><strong>Token ID:</strong> #{tokenId}</p>
-        <p><strong>Element:</strong> {element}</p>
-        <p><strong>Price:</strong> {(Number(price) / 1e18).toFixed(3)} ETH</p>
-        <p><strong>Seller:</strong> {seller.slice(0, 6)}...{seller.slice(-4)}</p>
-        <p className="listed-card-description">{description}</p>
+    <div className={`listedcard-container listedcard-${el}`}>
+      <h3 className="listedcard-title">{name}</h3>
+
+      <div className="listedcard-image-wrapper">
+        <img src={imageUrl} alt={name} className="listedcard-image" />
+      </div>
+
+      <div className="listedcard-price">
+        {price ? `Price: ${displayPrice} ETH` : `Est. Price: ${displayPrice} ETH`}
       </div>
     </div>
   );
-};
+}

@@ -1,64 +1,194 @@
-/* Container card phong cách pixel */
-.buying-card.pixel-card {
-  width: 220px;
+/* src/components/buyingcard.css */
+
+/* Container chính của card */
+.buyingcard-container {
   border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7),
+              0 0 8px rgba(255, 255, 255, 0.15);
+  width: 260px;
+  height: 360px;
   padding: 1rem;
-  text-align: center;
-  color: #fff;
-  font-family: 'Press Start 2P', cursive;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  user-select: none;
+  background-color: #000; /* fallback */
 }
 
-/* Hover effect nhẹ */
-.buying-card.pixel-card:hover {
-  transform: scale(1.04);
+.buyingcard-container:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9),
+              0 0 12px rgba(255, 255, 255, 0.2);
 }
 
-/* Tên NFT (phía trên) */
-.pixel-name {
-  font-size: 0.7rem;
-  margin-bottom: 1rem;
-  color: #fff;
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+/* Tiêu đề (name) */
+.buyingcard-title {
+  color: #f0f0f0;
+  font-size: clamp(1rem, 2vw, 1.1rem); /* co giãn theo chiều ngang */
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7),
+               0 0 12px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  white-space: normal; /* cho phép xuống dòng */
+  word-break: break-word; /* tự xuống dòng tại bất kỳ vị trí */
+  line-height: 1.2;
+  max-height: 2.4em;
 }
 
-/* Hình ảnh pixel trung tâm */
-.pixel-image {
+/* Khung chứa hình ảnh */
+.buyingcard-image-wrapper {
+  flex-grow: 1;
   width: 100%;
-  max-width: 120px;
-  height: auto;
-  margin: 0 auto 1.2rem;
-  image-rendering: pixelated;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+/* Ảnh NFT */
+.buyingcard-image {
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 12px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Nút MORE / SELECTED */
-.pixel-button {
-  margin-top: auto;
-  background: #2c2c2c;
-  color: #fff;
+/* Nút “MORE” (action) */
+.buyingcard-button {
+  background: rgba(50, 50, 50, 0.9);
+  color: #f0f0f0;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
   border: none;
-  padding: 0.6rem 1rem;
-  font-size: 0.75rem;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
-  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 1;
 }
 
-.pixel-button:hover {
-  background: #444;
+.buyingcard-button:hover {
+  transform: scale(1.05);
+  background: rgba(80, 80, 80, 0.95);
 }
 
-/* Trạng thái được chọn: ánh sáng nổi bật */
-.buying-card.selected {
-  outline: 3px solid gold;
-  box-shadow: 0 0 12px gold, 0 0 24px rgba(255, 215, 0, 0.4);
+/* -------------------------------------------- */
+/* Background gradient tối hơn cho từng element */
+
+/* 1. Light: vàng kem đậm, trắng ngả xám */
+.buyingcard-light {
+  background: linear-gradient(
+    135deg,
+    #e6dfcb 0%,
+    #dcd4be 40%,
+    #d4c8ab 70%,
+    #e6dfcb 100%
+  );
+  border: 2px solid #d4c8ab;
+}
+
+/* 2. Fire: đỏ đậm, nâu đỏ, cam đậm */
+.buyingcard-fire {
+  background: linear-gradient(
+    135deg,
+    #550000 0%,
+    #8b1a1a 40%,
+    #b23400 70%,
+    #8b1a1a 100%
+  );
+  border: 2px solid #b23400;
+}
+
+/* 3. Wind: xám xanh, xám đậm, xanh muối tiêu */
+.buyingcard-wind {
+  background: linear-gradient(
+    135deg,
+    #a3b3be 0%,
+    #8e9ea8 40%,
+    #7a8b94 70%,
+    #8e9ea8 100%
+  );
+  border: 2px solid #7a8b94;
+}
+
+/* 4. Dark: tím than, đen tím, tím đậm */
+.buyingcard-dark {
+  background: linear-gradient(
+    135deg,
+    #1e0026 0%,
+    #3a005c 40%,
+    #520078 70%,
+    #3a005c 100%
+  );
+  border: 2px solid #520078;
+}
+
+/* 5. Thunder: vàng rực, cam nhạt, xám vàng */
+.buyingcard-thunder {
+  background: linear-gradient(
+    135deg,
+    #a68b00 0%,
+    #c4a600 40%,
+    #e0be00 70%,
+    #c4a600 100%
+  );
+  border: 2px solid #e0be00;
+}
+
+/* 6. Earth: nâu đậm, nâu đất, xám nâu */
+.buyingcard-earth {
+  background: linear-gradient(
+    135deg,
+    #3d1f11 0%,
+    #573921 40%,
+    #725032 70%,
+    #573921 100%
+  );
+  border: 2px solid #725032;
+}
+
+/* 7. Metal: xám đen, xám thép đậm, xám kim loại */
+.buyingcard-metal {
+  background: linear-gradient(
+    135deg,
+    #606060 0%,
+    #707070 40%,
+    #8a8a8a 70%,
+    #707070 100%
+  );
+  border: 2px solid #8a8a8a;
+}
+
+/* 8. Water: xanh biển đậm, xanh dương đậm, xám xanh */
+.buyingcard-water {
+  background: linear-gradient(
+    135deg,
+    #00334e 0%,
+    #005577 40%,
+    #0077aa 70%,
+    #005577 100%
+  );
+  border: 2px solid #0077aa;
+}
+
+/* 9. Nature: xanh rừng đậm, xanh lá đậm, xanh lục tối */
+.buyingcard-nature {
+  background: linear-gradient(
+    135deg,
+    #114411 0%,
+    #1a661a 40%,
+    #228822 70%,
+    #1a661a 100%
+  );
+  border: 2px solid #228822;
 }

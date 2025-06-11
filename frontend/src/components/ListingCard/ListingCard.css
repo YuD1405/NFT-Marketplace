@@ -209,3 +209,9 @@
   margin-right: auto;
   backdrop-filter: blur(2px);
 }
+
+.listing-card.disabled {
+  opacity: 0.5;
+  filter: grayscale(70%);
+  pointer-events: none;
+}

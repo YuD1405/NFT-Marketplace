@@ -63,27 +63,38 @@ export default function NFTListForm({ signer, provider, nftAddress }: Props) {
 
       {!selected && (
         <div className="nft-grid">
-          {nfts.map((nft) => (
-            <div 
-                key={nft.tokenId} 
+          {nfts.map((nft) => {
+            const isListed = listings.some(
+              (listed) =>
+                listed.tokenId === nft.tokenId &&
+                listed.nft.toLowerCase() === nftAddress.toLowerCase()
+            );
+
+            return (
+              <div
+                key={nft.tokenId}
                 onClick={() => {
-                  setSelected(nft);
-                  const container = document.querySelector(".app-container");
-                  if (container) {
-                    container.scrollTo({ top: 0});
+                  if (!isListed) {
+                    setSelected(nft);
+                    const container = document.querySelector(".app-container");
+                    if (container) container.scrollTo({ top: 0 });
                   }
                 }}
-                style={{ cursor: "pointer" }}>
-              <ListingCard
-                tokenId={nft.tokenId}
-                name={nft.name}
-                description={nft.description}
-                imageUrl={nft.image}
-                element={nft.element}
-                attributes={nft.attributes}
-              />
-            </div>
-          ))}
+                className={isListed ? "nft-card-disabled" : ""}
+                style={{ cursor: isListed ? "not-allowed" : "pointer" }}
+              >
+                <ListingCard
+                  tokenId={nft.tokenId}
+                  name={nft.name}
+                  description={nft.description}
+                  imageUrl={nft.image}
+                  element={nft.element}
+                  attributes={nft.attributes}
+                  disabled={isListed} 
+                />
+              </div>
+            );
+          })}
         </div>
       )}
 

@@ -14,7 +14,7 @@ export default function ListNFT() {
 
   return (
     <div className="list-nft-container">
-      <h2 className="list-nft-title">NFT Marketplace</h2>
+      <h2 className="list-nft-title">List NFT</h2>
 
       <div className="tab-wrapper">
         <button

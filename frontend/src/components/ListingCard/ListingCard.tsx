@@ -11,9 +11,10 @@ interface NFTCardProps {
   imageUrl: string;
   element: string;
   attributes: { trait_type: string; value: string }[];
+  disabled?: boolean; 
 }
 
-export function ListingCard({ tokenId, name, description, imageUrl, element, attributes,}: NFTCardProps) {
+export function ListingCard({ tokenId, name, description, imageUrl, element, attributes, disabled, }: NFTCardProps) {
   // Chuyển element thành chuỗi class (lowercase) để khớp CSS, ví dụ "Fire" → "fire"
   const el = element.toLowerCase();
   const price = estimatePrice(attributes); 

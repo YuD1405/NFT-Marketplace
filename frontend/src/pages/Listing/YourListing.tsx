@@ -15,7 +15,7 @@ interface Props {
 export default function YourListing({ signer, provider, nftAddress }: Props) {
   const { account } = useWallet();
   const { listings, isFetching } = useMarketplace(signer, provider);
-
+  
   // Chỉ lấy các NFT của chính user
   const myListings = listings.filter(item => item.seller.toLowerCase() === account?.toLowerCase());
 
@@ -35,7 +35,7 @@ export default function YourListing({ signer, provider, nftAddress }: Props) {
               description={nft.description}
               imageUrl={nft.image}
               element={nft.element}
-              price={nft.price}
+              price={(Number(nft.price) / 1e18).toFixed(2)}
               seller={nft.seller}
               attributes={[]} // nếu cần, có thể truyền từ metadata
             />
