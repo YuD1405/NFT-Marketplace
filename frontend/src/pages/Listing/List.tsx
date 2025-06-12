@@ -8,7 +8,7 @@ import { NFT_ADDRESS } from "../../config";
 
 export default function ListNFT() {
   const [activeTab, setActiveTab] = useState<"list" | "yourListings">("list");
-  const { signer, provider } = useWallet();
+  const { signer, provider, account } = useWallet();
 
   const nftAddress = NFT_ADDRESS;
 
@@ -34,11 +34,11 @@ export default function ListNFT() {
       <div className="tab-content-box">
         {activeTab === "list" ? (
           <div className="tab-content">
-            <NFTListForm signer={signer} provider={provider} nftAddress={nftAddress} />
+            <NFTListForm signer={signer} provider={provider} nftAddress={nftAddress} account={account} />
           </div>
         ) : (
           <div className="tab-content">
-            <YourListing signer={signer} provider={provider} nftAddress={nftAddress} />
+            <YourListing signer={signer} provider={provider} nftAddress={nftAddress} account={account}/>
           </div>
         )}
       </div>

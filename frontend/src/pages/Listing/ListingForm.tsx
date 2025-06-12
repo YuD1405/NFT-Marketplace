@@ -11,11 +11,12 @@ interface Props {
   signer: ethers.JsonRpcSigner | null;
   provider: ethers.BrowserProvider | null;
   nftAddress: string;
+  account: string | null;
 }
 
-export default function NFTListForm({ signer, provider, nftAddress }: Props) {
-  const { account } = useWallet();
-  const { nfts } = useNFT();
+export default function NFTListForm({ signer, provider, nftAddress, account }: Props) {
+  //const { account } = useWallet();
+  const { nfts } = useNFT(account, provider);
   const { listings ,fetchAllListings } = useMarketplace(signer, provider);
   const [selected, setSelected] = useState<typeof nfts[0] | null>(null);
   const [price, setPrice] = useState("");

@@ -9,6 +9,7 @@ import ConnectWalletPage from "./pages/ConnectWallet/ConnectWallet";
 import { Nav } from "./components/Nav/Nav";
 import "./App.css";
 import ScrollToTop from "./components/ScrollToTop"; 
+import { ToastContainer } from "./components/Toast/ToastContainer";
 
 function AppContent() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function AppContent() {
           <Route path="/connect" element={<ConnectWalletPage />} />
         </Routes>
       </main>
+      <ToastContainer />
     </div>
   );
 }

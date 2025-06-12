@@ -8,8 +8,8 @@ import Loader from "../../components/Loader/Loader";
 import { estimatePrice } from "../../utils/estimatePrice";
 
 export default function MyNFTs() {
-  const { account, initialized } = useWallet();
-  const { nfts, fetchMyNFTs, mint, loading } = useNFT();
+  const { account, provider, initialized } = useWallet();
+  const { nfts, fetchMyNFTs, mint, loading } = useNFT(account, provider);
   const [selectedNFT, setSelectedNFT] = useState<typeof nfts[0] | null>(null);
 
   useEffect(() => {

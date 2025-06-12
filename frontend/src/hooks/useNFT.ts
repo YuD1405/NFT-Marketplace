@@ -4,6 +4,9 @@ import { useState, useEffect, useCallback } from "react";
 import { getNFTContract } from "./useContracts";
 import { useWallet } from "./useWallet";
 import { ipfsToHttps } from "../utils/ipfsToUrl";
+import { showToast } from "../components/Toast/ToastContainer";
+import { extractErrorMessage } from "../components/Toast/ToastUtils";
+import { ethers } from "ethers";
 
 interface NFTItem {
   tokenId: number;
@@ -17,8 +20,8 @@ interface NFTItem {
   attributes: { trait_type: string; value: string }[];
 }
 
-export function useNFT() {
-  const { provider, account } = useWallet();
+export function useNFT(account: string | null, provider: ethers.BrowserProvider | null){
+  //const { provider, account } = useWallet();
   const [nfts, setNfts] = useState<NFTItem[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -67,6 +70,8 @@ export function useNFT() {
       }
       setNfts(owned);
     } catch (err) {
+      const msg = "Failed to fetch NFTs: " + extractErrorMessage(err);
+      showToast(msg, "error");
       console.error("❌ Failed to fetch NFTs", err);
       setNfts([]);
     } finally {
@@ -83,8 +88,12 @@ export function useNFT() {
       const tx = await contract.mint();
       await tx.wait();
       await fetchMyNFTs();
+      console.log("Minted");
+      showToast("Minted", "success");
     } catch (err) {
-      console.error("❌ Failed to mint NFT", err);
+      console.log("Failed to mint NFTs: " + extractErrorMessage(err));
+      const msg = "Failed to mint NFTs: " + extractErrorMessage(err);
+      showToast(msg, "error");
     } finally {
       setLoading(false);
     }

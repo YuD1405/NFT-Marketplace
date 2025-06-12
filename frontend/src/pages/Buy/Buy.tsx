@@ -29,11 +29,8 @@ export default function Buy() {
                 name={item.name}
                 image={item.image}
                 element={item.element}
-                rarity={
-                  item.description.includes("Epic") ? "Epic" :
-                  item.description.includes("Rare") ? "Rare" :
-                  "Common"
-                }
+                rarity={item.rarity}
+                skill={item.skill}
                 price={(Number(item.price) / 1e18).toFixed(2)}
                 seller={item.seller}
                 onBuy={() => setSelectedNFT(item)}
@@ -49,11 +46,8 @@ export default function Buy() {
               name={selectedNFT.name}
               image={selectedNFT.image}
               element={selectedNFT.element}
-              rarity={
-                selectedNFT.description.includes("Epic") ? "Epic" :
-                selectedNFT.description.includes("Rare") ? "Rare" :
-                "Common"
-              }
+              rarity={selectedNFT.rarity}
+              skill={selectedNFT.skill}
               price={(Number(selectedNFT.price) / 1e18).toFixed(2)}
               seller={selectedNFT.seller}
               onBuy={() => buyNFT(selectedNFT.nft, selectedNFT.tokenId, selectedNFT.price)}
@@ -64,8 +58,9 @@ export default function Buy() {
           <div className="buy-selected-info">
             <h3 style={{ color: "#ffd700" }}>{selectedNFT.name}</h3>
             <p><strong>Element:</strong> {selectedNFT.element}</p>
-            <p><strong>Rarity:</strong> {selectedNFT.description}</p>
+            <p><strong>Rarity:</strong> {selectedNFT.rarity}</p>
             <p><strong>Price:</strong> {(Number(selectedNFT.price) / 1e18).toFixed(2)} ETH</p>
+            <p><strong>Skill:</strong> {selectedNFT.skill}</p>
             <p><strong>Seller:</strong> {selectedNFT.seller}</p>
 
             <div className="form-buttons">

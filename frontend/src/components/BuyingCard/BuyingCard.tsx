@@ -8,6 +8,7 @@ interface BuyingCardProps {
   rarity: string;
   price: string;
   seller: string;
+  skill: string;
   disabled?: boolean;
   onBuy: () => void;
 }
@@ -19,6 +20,7 @@ export function BuyingCard({
   rarity,
   price,
   seller,
+  skill,
   onBuy,
   disabled,
 }: BuyingCardProps) {

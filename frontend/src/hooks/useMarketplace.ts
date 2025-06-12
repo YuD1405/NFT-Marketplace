@@ -3,6 +3,8 @@ import { ethers } from "ethers";
 import { getMarketplaceContract, getNFTContract } from "./useContracts";
 import { ipfsToHttps } from "../utils/ipfsToUrl";
 import type { JsonRpcSigner, BrowserProvider } from "ethers";
+import { showToast } from "../components/Toast/ToastContainer";
+import { extractErrorMessage } from "../components/Toast/ToastUtils";
 
 interface NFTItem {
   nft: string;
@@ -13,6 +15,8 @@ interface NFTItem {
   description: string;
   image: string;
   element: string;
+  rarity: string;
+  skill: string;
 }
 
 interface UseMarketplaceReturn {
@@ -69,11 +73,15 @@ export function useMarketplace(
           description: meta.description || "",
           image: meta.image ? ipfsToHttps(meta.image) : "",
           element: getAttr("Element"),
+          rarity: getAttr("Rarity"),
+          skill: getAttr("Skill"),
         });
       }
 
       setListings(result);
     } catch (err) {
+      const msg = extractErrorMessage(err);
+      showToast(msg, "error");
       console.error("❌ Error fetchAllListings:", err);
       setListings([]);
     } finally {
@@ -84,7 +92,8 @@ export function useMarketplace(
   const buyNFT = useCallback(
     async (nftAddress: string, tokenId: number, price: bigint) => {
       if (!marketWrite) {
-        alert("Contract Marketplace chưa sẵn sàng");
+        const msg = "The Marketplace contract is not yet available";
+        showToast(msg, "error");
         return;
       }
       setIsBuying(true);
@@ -92,10 +101,14 @@ export function useMarketplace(
         const tx = await marketWrite.buyNFT(nftAddress, tokenId, { value: price });
         await tx.wait();
         await fetchAllListings();
-        alert("✅ Mua NFT thành công!");
+        //alert("✅ Mua NFT thành công!");
+        const msg = "NFT purchase successful!";
+        showToast(msg, "success");
       } catch (err) {
         console.error("❌ Error buyNFT:", err);
-        alert("❌ Mua thất bại. Kiểm tra console.");
+        //alert("❌ Mua thất bại. Kiểm tra console.");
+        const msg = "Failed to purchase the NFT: " + extractErrorMessage(err);
+        showToast(msg, "error");
       } finally {
         setIsBuying(false);
       }
