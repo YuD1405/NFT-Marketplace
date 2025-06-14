@@ -88,8 +88,8 @@ export function useNFT(account: string | null, provider: ethers.BrowserProvider 
       const tx = await contract.mint();
       await tx.wait();
       await fetchMyNFTs();
-      console.log("Minted");
-      showToast("Minted", "success");
+      console.log("Minted successfully!");
+      showToast("Minted successfully!", "success");
     } catch (err) {
       console.log("Failed to mint NFTs: " + extractErrorMessage(err));
       const msg = "Failed to mint NFTs: " + extractErrorMessage(err);

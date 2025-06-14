@@ -3,6 +3,7 @@ import { useNFT } from "../../hooks/useNFT";
 import { useWallet } from "../../hooks/useWallet";
 import { Navigate } from "react-router-dom";
 import { NFTCard } from "../../components/NFTCard/NFTCard";
+import { AttributeBox } from "../../components/AttributeBox/AttributeBox";
 import "./MyNFTs.css";
 import Loader from "../../components/Loader/Loader";
 import { estimatePrice } from "../../utils/estimatePrice";
@@ -79,15 +80,18 @@ export default function MyNFTs() {
 
               {(() => {
                 const get = (key: string) =>
-                  selectedNFT.attributes.find(attr => attr.trait_type === key)?.value ?? "Unknown";
+                selectedNFT.attributes.find(attr => attr.trait_type === key)?.value ?? "Unknown";
                 const price = estimatePrice(selectedNFT.attributes); 
                 
                 return (
                   <>
-                    <p><strong>Element:</strong> {selectedNFT.element}</p>
-                    <p><strong>Rarity:</strong> {get("Rarity")}</p>
-                    <p><strong>Weapon Type:</strong> {get("Weapon Type")}</p>
-                    <p><strong>Skill:</strong> {get("Skill")}</p>
+                    <div className="nft-attribute-boxes">
+                      <AttributeBox label="Element" value={selectedNFT.element} />
+                      <AttributeBox label="Rarity" value={get("Rarity")} />
+                      <AttributeBox label="Weapon Type" value={get("Weapon Type")} />
+                      <AttributeBox label="Skill" value={get("Skill")} />
+                    </div>
+
                     <p><strong>Estimate Price:</strong> {price} ETH</p>
 
                     <div className="form-buttons">

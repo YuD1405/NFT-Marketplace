@@ -19,6 +19,7 @@ export function useWallet() {
   const [signer, setSigner] = useState<ethers.JsonRpcSigner | null>(null);
   const [initialized, setInitialized] = useState(false);
   const hasAttachedListeners = useRef(false);
+  const justConnectedRef = useRef(false);
 
   // 1. Khi hook mount, kiểm tra xem MetaMask có lưu account nào sẵn hay không
   useEffect(() => {
@@ -73,6 +74,7 @@ export function useWallet() {
         setSigner(s);
         const msg = "Wallet connected to: " +  shortenAddress(accounts[0]);
         showToast(msg, "success");
+        justConnectedRef.current = true;
         console.log("✅ Wallet connected to:", shortenAddress(accounts[0]));
       }
     } catch (err) {
@@ -99,7 +101,11 @@ export function useWallet() {
         setProvider(browserProvider);
         const s = await browserProvider.getSigner();
         setSigner(s);
-        showToast("Account changed to: " + shortenAddress(accounts[0]), "info");
+        if (justConnectedRef.current) {
+          justConnectedRef.current = false; // reset lại
+        } else {
+          showToast("Account changed to: " + shortenAddress(accounts[0]), "info");
+        }
       }
     };
 
