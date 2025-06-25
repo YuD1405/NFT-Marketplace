@@ -6,6 +6,7 @@ import { getNFTContract } from "../../hooks/useContracts";
 import { ethers } from "ethers";
 import { ListingCard } from "../../components/ListingCard/ListingCard";
 import "./ListingForm.css";
+import { showToast } from "../../components/Toast/ToastContainer";
 
 interface Props {
   signer: ethers.JsonRpcSigner | null;
@@ -45,7 +46,7 @@ export default function NFTListForm({ signer, provider, nftAddress, account }: P
       );
       await tx.wait();
 
-      alert("✅ NFT listed successfully!");
+      showToast("✅ NFT listed successfully!", "success");
 
       await fetchAllListings(); // thêm dòng này
       
@@ -53,7 +54,7 @@ export default function NFTListForm({ signer, provider, nftAddress, account }: P
       setPrice("");
     } catch (err) {
       console.error("❌ List NFT failed:", err);
-      alert("❌ Failed to list NFT.");
+      showToast("Failed to list NFT.", "error");
     } finally {
       setLoading(false);
     }
