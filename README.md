@@ -1,90 +1,133 @@
-# 🖼️ NFT Marketplace Mini
+# 🧙‍♂️ NFT Marketplace – Web3 Game Card Style
 
-Một dự án cá nhân mô phỏng lại một phần cơ bản của **OpenSea** – nơi người dùng có thể tạo, niêm yết và mua bán NFT trực tiếp trên blockchain.
-
-## 🎯 Mục tiêu dự án
-
-Xây dựng một hệ thống NFT Marketplace nhỏ gọn với các tính năng cốt lõi:
-
-- ✅ Tạo (mint) NFT chuẩn [ERC721](https://eips.ethereum.org/EIPS/eip-721)
-- ✅ Tích hợp metadata lưu trữ trên **IPFS**
-- ✅ Niêm yết NFT để bán trên một marketplace on-chain
-- ✅ Mua NFT từ người bán và chuyển quyền sở hữu
-- ✅ Hiển thị các NFT mà người dùng đang sở hữu
-- ✅ Frontend giao diện đơn giản kết nối qua `ethers.js` + MetaMask
+Một ứng dụng NFT Marketplace phi tập trung, nơi người dùng có thể kết nối ví, mint NFT, mua bán và duyệt qua bộ sưu tập NFT phong cách game-card. Dự án sử dụng **React + TypeScript + ethers.js + Hardhat**, hỗ trợ IPFS, UI hiện đại và tích hợp Web3 đầy đủ.
 
 ---
 
-## ⚙️ Công nghệ sử dụng
+## 📁 Cấu trúc thư mục chính
 
-| Thành phần | Công nghệ |
-|------------|-----------|
-| Smart Contract | Solidity + OpenZeppelin ERC721 |
-| Dev Tool | Hardhat |
-| IPFS | Pinata hoặc Web3.Storage |
-| Frontend | HTML + JavaScript (Vanilla) + MetaMask |
-| Deploy/Test | Hardhat Localnet (hoặc Mumbai Testnet) |
+```bash
+NFT-Marketplace/
+│
+├── Accounts_Local/       # Tài khoản Ethereum cho mạng cục bộ
+├── artifacts/            # Output khi compile smart contract
+├── cache/                # Cache biên dịch hardhat
+├── contracts/            # Chứa các smart contract (ERC721, Marketplace)
+├── coverage/             # Báo cáo coverage test
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── abi/                  # ABI contract JSON
+│   │   ├── components/           # UI component thuần
+│   │   ├── hooks/                # Custom React hooks: useWallet, useNFT, useMarketplace,...
+│   │   ├── pages/                # Các page chính (route-level): Home, Mint, Buy, Detail,...
+│   │   ├── material/             # images, bg,...
+│   │   ├── test/                 # các file test
+│   │   ├── utils/                # Hàm tiện ích: formatEther, shortenAddress, ipfsToHttp,...
+│   │   ├── App.tsx               
+│   │   ├── App.css
+│   │   ├── config.ts             # Lưu các biến địa chỉ
+│   │   ├── index.tsx
+│   │   └── index.css              
+│   ├── .env
+│   ├── index.html
+│   ├── package.json
+│   └── tsconfig.json         # Hàm tiện ích: formatEther, truncateAddr,...
+├── ignition/             # Deploy logic dùng Hardhat Ignition
+├── metadata/             # Chứa file metadata JSON để upload IPFS
+├── node_modules/
+├── scripts/              # Script deploy và tương tác với contract
+├── test/                 # Test smart contract
+├── typechain-types/      # Typechain bindings cho ethers
+│
+├── .env                  # Biến môi trường (Infura, Private Key,...)
+├── .gitignore
+├── coverage.json
+├── hardhat.config.ts     # Cấu hình mạng, compiler, plugin cho Hardhat
+├── package.json
+├── tsconfig.json
+└── README.md             # Tài liệu hướng dẫn
+````
 
 ---
 
-## 🧱 Kiến trúc hệ thống
+## 🚀 Tính năng chính
 
+### 🦊 Kết nối ví
+
+* Kết nối ví MetaMask qua `ethers.js`.
+* Tự động nhận biết khi đổi network/account.
+* Toast thông báo mỗi sự kiện (kết nối, lỗi, đổi mạng,...).
+
+### 🎨 Hiển thị NFT của người dùng
+
+* Truy vấn NFT đang sở hữu từ contract ERC721.
+* Đọc metadata từ IPFS (qua tokenURI).
+* Hiển thị ảnh, tên, và các thuộc tính như:
+
+  * `Element`, `Rarity`, `Skill`, `Weapon Type`, `Price estimate`.
+
+### 🪄 Mint NFT
+
+* Tự gọi `mint()` từ smart contract.
+* Upload metadata lên IPFS (có thể dùng NFT.Storage).
+* Cập nhật UI sau khi mint xong.
+
+### 🛒 List NFT
+
+* Hiển thị các NFT chưa list.
+* Cho phép nhập giá (ETH) để list.
+* Gọi `approve()` và `listNFT()` từ Marketplace contract.
+
+### 🧾 Your Listings
+
+* Hiển thị danh sách các NFT đã list lên sàn.
+* Có thể nhấn vào để xem chi tiết từng NFT.
+
+### 💰 Mua NFT
+
+* Hiển thị tất cả NFT của người khác đang được list.
+* Cho phép click → xem chi tiết → Confirm Buy.
+* Gọi `buyNFT(tokenId)` với đúng giá.
+
+---
+
+## 🛠️ Cài đặt & chạy dự án
+
+### 1. Clone và cài đặt
+
+```bash
+git clone https://github.com/yourname/nft-marketplace.git
+cd NFT-Marketplace
+npm install
+cd frontend
+npm install
 ```
 
-User <-> MetaMask <-> Frontend (JS) <-> Smart Contract (Hardhat)
-|
-IPFS (ảnh, metadata)
+### 2. Chạy local blockchain & deploy
 
+```bash
+npx hardhat node
+npx hardhat run scripts/deploy.ts --network localhost
 ```
 
-- **NFTCollection.sol**: Contract ERC721 cho phép người dùng `mint()` NFT mới kèm metadata IPFS.
-- **Marketplace.sol**: Contract cho phép list/mua NFT. Sử dụng `approve` và `transferFrom` để chuyển quyền sở hữu.
-- **Frontend**: Giao diện đơn giản cho người dùng tương tác với MetaMask để mint/list/buy NFT.
+### 3. Chạy frontend
+
+```bash
+cd frontend
+npm run dev
+```
 
 ---
 
-## 📦 Các tính năng chính
+## ⚙ Công nghệ sử dụng
 
-### 1. Mint NFT
-- Upload metadata (JSON) chứa `name`, `description`, `image` lên IPFS
-- Gọi `mintNFT(ipfsMetadataUrl)` từ contract
-
-### 2. List NFT for Sale
-- Gọi `approve(marketplaceAddress, tokenId)`
-- Gọi `listNFT(tokenId, price)` trên marketplace contract
-
-### 3. Buy NFT
-- Gửi ETH đến `buyNFT(tokenId)`
-- Contract sẽ chuyển quyền sở hữu NFT cho buyer
-
-### 4. View NFTs
-- Gọi `tokenURI(tokenId)` → load từ IPFS → hiển thị ảnh, tên, mô tả
+| Layer          | Tech Stack                                  |
+| -------------- | ------------------------------------------- |
+| Smart Contract | Solidity, Hardhat, TypeChain                |
+| Frontend       | React, TypeScript, Vite, TailwindCSS        |
+| Web3           | ethers.js, MetaMask                         |
+| Storage        | IPFS (NFT.Storage, Pinata)                  |
+| UI             | Orbitron Font, Toastify, Attribute-based UI |
 
 ---
-
-## 📚 Kế hoạch phát triển
-
-| Ngày | Nội dung |
-|------|----------|
-| Day 1 | Setup Hardhat, phân tích ERC721 |
-| Day 2 | Viết contract ERC721 + script deploy |
-| Day 3 | Tích hợp IPFS metadata |
-| Day 4 | Viết contract Marketplace: list & buy |
-| Day 5 | Giao diện HTML + JS đơn giản |
-| Day 6 | Hoàn thiện, kiểm thử, tối ưu |
-| Day 7 | Viết báo cáo, cập nhật README, đưa lên GitHub |
-
----
-
-## 🧠 Kiến thức rèn luyện
-
-- ERC721, IPFS, approve & transferFrom, event, mapping
-- Viết smart contract với Hardhat
-- Triển khai ứng dụng Web3 frontend thuần JS
-- Hiểu toàn bộ quy trình hoạt động của NFT marketplace
-
----
-
-## 📎 License
-
-MIT License
